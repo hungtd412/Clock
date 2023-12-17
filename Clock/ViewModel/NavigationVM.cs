@@ -36,6 +36,7 @@ namespace Clock.ViewModel
             StopwatchCommand = new RelayCommand(Stopwatch);
             // Startup Page
             CurrentView = new PomodoroVM();
+            _currentView = CurrentView;
         }
     }
 }

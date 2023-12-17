@@ -12,7 +12,7 @@
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized"
+        WindowState="Normal"
         Background="Transparent"        >
 
     <Window.DataContext>
@@ -21,7 +21,7 @@
 
     <Grid>
         <Border Background="#272B2F" />
-         
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="275" />
@@ -30,13 +30,70 @@
 
             <Grid>
                 <Border Background="#B2191919"/>
-                
-                
+
+                <StackPanel Height="400" >
+
+                    <!--// Pomodoro //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding PomodoroCommand}"
+                              IsChecked="True">
+                        <Grid>
+
+                            <TextBlock Text="Pomodoro"
+                                       Style="{StaticResource Text_Style}" />
+                            <Image Source="Images/pomodoro_icon.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding TimerCommand}">
+                        <Grid>
+                            <Image Source="Images/timer_icon.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Timer"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding AlarmCommand}">
+                        <Grid>
+                            <Image Source="Images/alarm_icon.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Alarm"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding StopwatchCommand}">
+                        <Grid>
+                            <Image Source="Images/stopwatch_icon.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Stopwatch"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+                </StackPanel>
+
             </Grid>
 
             <Grid Grid.Column="1">
-                
-
+                <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}" />
             </Grid>
         </Grid>
 
