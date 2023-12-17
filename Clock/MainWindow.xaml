@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clock"
-        
-        
+        xmlns:vm="clr-namespace:Clock.ViewModel"
+        xmlns:Menu="clr-namespace:Clock.Ultilities"
         mc:Ignorable="d"
         Title="TimeTuner" Height="450" Width="800"
         AllowsTransparency="True"
@@ -15,8 +15,10 @@
         WindowState="Maximized"
         Background="Transparent"        >
 
-      
-    
+    <Window.DataContext>
+        <vm:NavigationVM />
+    </Window.DataContext>
+
     <Grid>
         <Border Background="#272B2F" />
          
