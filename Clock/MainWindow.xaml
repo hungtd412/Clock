@@ -1,0 +1,43 @@
+﻿<Window x:Class="Clock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clock"
+        
+        
+        mc:Ignorable="d"
+        Title="TimeTuner" Height="450" Width="800"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Background="Transparent"        >
+
+      
+    
+    <Grid>
+        <Border Background="#272B2F" />
+         
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="275" />
+                <ColumnDefinition Width="525" />
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Border Background="#B2191919"/>
+                
+                
+            </Grid>
+
+            <Grid Grid.Column="1">
+                
+
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>
