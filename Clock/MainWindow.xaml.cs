@@ -46,5 +46,19 @@ namespace Clock
         {
             DragMove();
         }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.Width <= 800)
+            {
+                Tg_Btn.IsChecked = true;
+                Tg_Btn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Tg_Btn.IsChecked = false;
+                Tg_Btn.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

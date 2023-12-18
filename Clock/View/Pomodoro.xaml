@@ -6,7 +6,6 @@
              xmlns:vm="clr-namespace:Clock.ViewModel"
              xmlns:local="clr-namespace:Clock.View"
              mc:Ignorable="d" 
-             d:DesignHeight="440" d:DesignWidth="425"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
@@ -14,8 +13,13 @@
     </UserControl.DataContext>
 
     <Grid>
-        <Button Height="100" Width="100">
-            
-        </Button>
+        <StackPanel>
+            <TextBlock Height="300" 
+                       Width="400" 
+                       TextWrapping="Wrap"
+                       FontSize="34"
+                       Background="AliceBlue"
+                       Text="kích thước view của các mục (pomo, alarm,...) ở trong phần page.xaml, mục nào size cũng như nhau"/>
+        </StackPanel>
     </Grid>
 </UserControl>

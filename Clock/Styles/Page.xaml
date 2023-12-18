@@ -3,6 +3,9 @@
 
     <Style x:Key="Page_Style"
            TargetType="{x:Type UserControl}">
+        
+        <Setter Property="Width" Value="459"></Setter>
+        <Setter Property="Height" Value="409"></Setter>
 
         <Setter Property="RenderTransform">
             <Setter.Value>

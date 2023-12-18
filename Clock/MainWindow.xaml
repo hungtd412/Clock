@@ -8,13 +8,14 @@
         xmlns:Menu="clr-namespace:Clock.Ultilities"
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
-        Title="TimeTuner" Height="450" Width="800"
-        MinHeight="400" MinWidth="421"
+        Title="TimeTuner" Height="560" Width="1000"
+        MinHeight="450" MinWidth="630"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
-        Background="Transparent">
+        Background="Transparent"
+        SizeChanged="Window_SizeChanged">
 
     <Window.DataContext>
         <vm:NavigationVM />
@@ -29,11 +30,11 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="275" />
-                <ColumnDefinition Width="0.65*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid>
+            <Grid x:Name="MainControl">
                 <Border Background="#B2191919"/>
 
                 <StackPanel Height="400" VerticalAlignment="Top">
@@ -46,7 +47,7 @@
                         <TextBlock Style="{StaticResource Text_Style}"
                            Text="Clock"
                            HorizontalAlignment="Left" 
-                           Margin="79,0,0,0" VerticalAlignment="Center"/>
+                           Margin="79,3,0,0" VerticalAlignment="Center"/>
                         <Image  Margin="27,0,0,0" 
                            Source="Images/app_icon.png"
                            Style="{StaticResource Image_Style}">
@@ -118,44 +119,95 @@
             </Grid>
 
             <Grid Grid.Column="1" >
-                <ContentControl x:Name="Pages"
-                                Content="{Binding CurrentView}" />
 
-                <Canvas VerticalAlignment="Top"
-                    Height="38" Width="525"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--// Window Style Control //-->
+                
+                <Grid>
+                    <Canvas VerticalAlignment="Top"
+                    Height="41" Width="Auto"
                     MouseLeftButtonDown="Drag_Move"
                     Background="Transparent"
-                    HorizontalAlignment="Right" >
-                    
-                    <Button x:Name="btn_Close"
+                    >
+
+                        <ToggleButton x:Name="Tg_Btn"
+                                  VerticalAlignment="Center"
+                                  Style="{DynamicResource iToggleButtonStyle}"
+                                  HorizontalAlignment="Left"
+                                  BorderThickness="0" 
+                                  Background="Transparent"
+                                  Margin="10,5,0,15" Height="30" Width="30">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="MainControl" 
+                                                         Storyboard.TargetProperty="Width" 
+                                                         BeginTime="0:0:0"
+                                                         From="75" To="275"
+                                                         Duration="0:0:0.2">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="MainControl" 
+                                                         Storyboard.TargetProperty="Width" 
+                                                         BeginTime="0:0:0" 
+                                                         From="275" To="75" 
+                                                         Duration="0:0:0.2">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                        <Button x:Name="btn_Close"
                         Style="{StaticResource Close_Button_Style}"
-                        Canvas.Left="477"
-                        Height="38"
+                        Canvas.Right="0"
+                        HorizontalAlignment="Right"
+                        Height="38" Width="48"
                         Content="✖️"
                         Padding="0"
                         FontSize="13"
-                        Click="Close_Click"
-                        Width="48"/>
-                    <Button x:Name="btn_Maximize" 
+                        Click="Close_Click"/>
+                        
+                        <Button x:Name="btn_Maximize" 
                         Style="{StaticResource Icon_Button_Style}"
                         Height="38"  
-                        Canvas.Left="429" 
+                        Canvas.Right="48" 
                         Content="1"
                         FontFamily="Webdings"
                         FontSize="15"
                         Padding="0"
                         Click="Maximize_Click"
                         Width="48" Canvas.Top="1"/>
-                    <Button Name="btn_Minimize"
+                        
+                        <Button Name="btn_Minimize"
                         Style="{StaticResource Icon_Button_Style}"
                         Height="38"
-                        Canvas.Left="378"
+                        Canvas.Right="96"
                         Content="🗕"
                         Padding="5"
                         Click="Minimize_Click"
                         FontSize="15"
                         Width="48" Canvas.Top="1"/>
-                </Canvas>
+                    </Canvas>
+                </Grid>
+
+                <!--// View //-->
+
+                <Grid Grid.Row="1">
+                    <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}" />
+                </Grid>
             </Grid>
         </Grid>
 
