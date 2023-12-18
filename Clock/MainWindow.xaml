@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
         Title="TimeTuner" Height="450" Width="800"
-        MinHeight="200" MinWidth="421"
+        MinHeight="400" MinWidth="421"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
@@ -35,10 +35,6 @@
 
             <Grid>
                 <Border Background="#B2191919"/>
-
-
-                
-
 
                 <StackPanel Height="400" VerticalAlignment="Top">
 
