@@ -11,7 +11,7 @@
     <None Remove="Fonts\Rubik-Medium.ttf" />
     <None Remove="Fonts\Rubik-Regular.ttf" />
     <None Remove="Images\alarm_icon.png" />
-    <None Remove="Images\icon_app.png" />
+    <None Remove="Images\app_icon.png" />
     <None Remove="Images\pomodoro_icon.png" />
     <None Remove="Images\stopwatch_icon.png" />
     <None Remove="Images\timer_icon.png" />
@@ -21,7 +21,7 @@
     <Resource Include="Fonts\Rubik-Medium.ttf" />
     <Resource Include="Fonts\Rubik-Regular.ttf" />
     <Resource Include="Images\alarm_icon.png" />
-    <Resource Include="Images\icon_app.png" />
+    <Resource Include="Images\app_icon.png" />
     <Resource Include="Images\pomodoro_icon.png" />
     <Resource Include="Images\stopwatch_icon.png" />
     <Resource Include="Images\timer_icon.png" />

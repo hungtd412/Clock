@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clock.Ultilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,27 @@ namespace Clock
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            WindowStyleControl.Exit();
+        }
+
+        private void Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            WindowStyleControl.DoMaximize(this, btn);
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowStyleControl.Minimize(this);
+        }
+
+        private void Drag_Move(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

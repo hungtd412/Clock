@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:Clock.ViewModel"
              xmlns:local="clr-namespace:Clock.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="440" d:DesignWidth="425"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
@@ -14,6 +14,8 @@
     </UserControl.DataContext>
 
     <Grid>
+        <Button Height="100" Width="100">
             
+        </Button>
     </Grid>
 </UserControl>

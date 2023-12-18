@@ -7,17 +7,22 @@
         xmlns:vm="clr-namespace:Clock.ViewModel"
         xmlns:Menu="clr-namespace:Clock.Ultilities"
         mc:Ignorable="d"
+        Icon="Images/app_icon.png"
         Title="TimeTuner" Height="450" Width="800"
-        AllowsTransparency="True"
+        MinHeight="200" MinWidth="421"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
-        Background="Transparent"        >
+        Background="Transparent">
 
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <Border Background="#272B2F" />
@@ -25,13 +30,32 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="275" />
-                <ColumnDefinition Width="525" />
+                <ColumnDefinition Width="0.65*" />
             </Grid.ColumnDefinitions>
 
             <Grid>
                 <Border Background="#B2191919"/>
 
-                <StackPanel Height="400" >
+
+                
+
+
+                <StackPanel Height="400" VerticalAlignment="Top">
+
+                    <Grid VerticalAlignment="Top"
+                      HorizontalAlignment="Left" 
+                      Height="38" Width="275"
+                      MouseLeftButtonDown="Drag_Move"
+                      Background="Transparent">
+                        <TextBlock Style="{StaticResource Text_Style}"
+                           Text="Clock"
+                           HorizontalAlignment="Left" 
+                           Margin="79,0,0,0" VerticalAlignment="Center"/>
+                        <Image  Margin="27,0,0,0" 
+                           Source="Images/app_icon.png"
+                           Style="{StaticResource Image_Style}">
+                        </Image>
+                    </Grid>
 
                     <!--// Pomodoro //-->
 
@@ -49,6 +73,8 @@
 
                     </Menu:Btn>
 
+                    <!--// Timer //-->
+
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding TimerCommand}">
                         <Grid>
@@ -62,6 +88,8 @@
 
                     </Menu:Btn>
 
+                    <!--// Alarm //-->
+
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding AlarmCommand}">
                         <Grid>
@@ -74,6 +102,8 @@
                         </Grid>
 
                     </Menu:Btn>
+
+                    <!--// Stopwatch //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding StopwatchCommand}">
@@ -91,9 +121,45 @@
 
             </Grid>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" >
                 <ContentControl x:Name="Pages"
                                 Content="{Binding CurrentView}" />
+
+                <Canvas VerticalAlignment="Top"
+                    Height="38" Width="525"
+                    MouseLeftButtonDown="Drag_Move"
+                    Background="Transparent"
+                    HorizontalAlignment="Right" >
+                    
+                    <Button x:Name="btn_Close"
+                        Style="{StaticResource Close_Button_Style}"
+                        Canvas.Left="477"
+                        Height="38"
+                        Content="✖️"
+                        Padding="0"
+                        FontSize="13"
+                        Click="Close_Click"
+                        Width="48"/>
+                    <Button x:Name="btn_Maximize" 
+                        Style="{StaticResource Icon_Button_Style}"
+                        Height="38"  
+                        Canvas.Left="429" 
+                        Content="1"
+                        FontFamily="Webdings"
+                        FontSize="15"
+                        Padding="0"
+                        Click="Maximize_Click"
+                        Width="48" Canvas.Top="1"/>
+                    <Button Name="btn_Minimize"
+                        Style="{StaticResource Icon_Button_Style}"
+                        Height="38"
+                        Canvas.Left="378"
+                        Content="🗕"
+                        Padding="5"
+                        Click="Minimize_Click"
+                        FontSize="15"
+                        Width="48" Canvas.Top="1"/>
+                </Canvas>
             </Grid>
         </Grid>
 
