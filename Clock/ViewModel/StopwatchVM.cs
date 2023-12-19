@@ -7,7 +7,7 @@ using Clock.ViewModel;
 
 namespace Clock.ViewModel
 {
-    class StopwatchVM : Ultilities.ViewModelBase
+    class StopwatchVM : Utilities.ViewModelBase
     {
     }
 }

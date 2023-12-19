@@ -7,7 +7,7 @@ using Clock.ViewModel;
 
 namespace Clock.ViewModel
 {
-    class PomodoroVM : Ultilities.ViewModelBase
+    class PomodoroVM : Utilities.ViewModelBase
     {
 
     }

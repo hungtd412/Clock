@@ -7,7 +7,7 @@ using Clock.ViewModel;
 
 namespace Clock.ViewModel
 {
-    class TimerVM : Ultilities.ViewModelBase
+    class TimerVM : Utilities.ViewModelBase
     {
     }
 }

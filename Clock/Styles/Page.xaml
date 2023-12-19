@@ -28,14 +28,14 @@
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                         Duration="0:0:0.2"
+                                         Duration="0:0:0.15"
                                          From="0"
                                          To="1" />
                         <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
                                          From="50"
                                          To="0"
                                          Duration="0:0:0.3"
-                                         DecelerationRatio="0.2" />
+                                         DecelerationRatio="0.15" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

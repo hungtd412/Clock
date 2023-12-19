@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clock"
         xmlns:vm="clr-namespace:Clock.ViewModel"
-        xmlns:Menu="clr-namespace:Clock.Ultilities"
+        xmlns:Menu="clr-namespace:Clock.Utilities"
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
         Title="TimeTuner" Height="560" Width="1000"
@@ -13,7 +13,7 @@
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        WindowState="Normal"
+        WindowState="Normal" BorderBrush="#427ef5" BorderThickness="0.7"
         Background="Transparent"
         SizeChanged="Window_SizeChanged">
 
@@ -39,11 +39,14 @@
 
                 <StackPanel Height="400" VerticalAlignment="Top">
 
+                    <!--// Icon App Clock //-->
+
                     <Grid VerticalAlignment="Top"
-                      HorizontalAlignment="Left" 
-                      Height="38" Width="275"
-                      MouseLeftButtonDown="Drag_Move"
-                      Background="Transparent">
+                        HorizontalAlignment="Left" 
+                        Height="38" Width="275"
+                        MouseLeftButtonDown="Drag_Move"
+                        MouseMove="Grid_MouseMove"
+                        Background="Transparent">
                         <TextBlock Style="{StaticResource Text_Style}"
                            Text="Clock"
                            HorizontalAlignment="Left" 
@@ -95,7 +98,6 @@
 
                             <TextBlock Text="Alarm"
                                        Style="{StaticResource Text_Style}" />
-
                         </Grid>
 
                     </Menu:Btn>
@@ -126,13 +128,15 @@
                 </Grid.RowDefinitions>
 
                 <!--// Window Style Control //-->
-                
+
                 <Grid>
                     <Canvas VerticalAlignment="Top"
                     Height="41" Width="Auto"
                     MouseLeftButtonDown="Drag_Move"
-                    Background="Transparent"
-                    >
+                    MouseMove="Grid_MouseMove"
+                    Background="Transparent">
+
+                        <!--// Show Hide Menu Button //-->
 
                         <ToggleButton x:Name="Tg_Btn"
                                   VerticalAlignment="Center"
@@ -169,6 +173,8 @@
                             </ToggleButton.Triggers>
                         </ToggleButton>
 
+                        <!--// Close Button //-->
+
                         <Button x:Name="btn_Close"
                         Style="{StaticResource Close_Button_Style}"
                         Canvas.Right="0"
@@ -178,7 +184,9 @@
                         Padding="0"
                         FontSize="13"
                         Click="Close_Click"/>
-                        
+
+                        <!--// Maximize Button //-->
+
                         <Button x:Name="btn_Maximize" 
                         Style="{StaticResource Icon_Button_Style}"
                         Height="38"  
@@ -189,7 +197,9 @@
                         Padding="0"
                         Click="Maximize_Click"
                         Width="48" Canvas.Top="1"/>
-                        
+
+                        <!--// Minimize Button //-->
+
                         <Button Name="btn_Minimize"
                         Style="{StaticResource Icon_Button_Style}"
                         Height="38"
@@ -206,7 +216,7 @@
 
                 <Grid Grid.Row="1">
                     <ContentControl x:Name="Pages"
-                                Content="{Binding CurrentView}" />
+                                Content="{Binding CurrentView}" Grid.ColumnSpan="2" />
                 </Grid>
             </Grid>
         </Grid>

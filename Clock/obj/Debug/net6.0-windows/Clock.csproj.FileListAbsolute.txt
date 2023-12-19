@@ -33,4 +33,4 @@ D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-win
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Styles\Text.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\App.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Ultilities\DataTemplate.baml
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Utilities\DataTemplate.baml

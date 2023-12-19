@@ -36,7 +36,7 @@
     <Page Update="Styles\Text.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Ultilities\DataTemplate.xaml">
+    <Page Update="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Alarm.xaml">

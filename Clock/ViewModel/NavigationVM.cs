@@ -1,4 +1,4 @@
-﻿using Clock.Ultilities;
+﻿using Clock.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

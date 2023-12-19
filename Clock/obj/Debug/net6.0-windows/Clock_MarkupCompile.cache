@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\App.xaml
-10933696828
+101068338640
 
-17-685126977
+171067740689
 194101785492
-MainWindow.xaml;Styles\Button.xaml;Styles\Image.xaml;Styles\Page.xaml;Styles\Text.xaml;Ultilities\DataTemplate.xaml;View\Alarm.xaml;View\Pomodoro.xaml;View\Stopwatch.xaml;View\Timer.xaml;
+MainWindow.xaml;Styles\Button.xaml;Styles\Image.xaml;Styles\Page.xaml;Styles\Text.xaml;Utilities\DataTemplate.xaml;View\Alarm.xaml;View\Pomodoro.xaml;View\Stopwatch.xaml;View\Timer.xaml;
 
 False
 
