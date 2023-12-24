@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:Clock.ViewModel"
                     xmlns:view="clr-namespace:Clock.View">
-    
+
+
     <DataTemplate DataType="{x:Type vm:PomodoroVM}">
         <view:Pomodoro />
     </DataTemplate>
@@ -18,5 +19,4 @@
     <DataTemplate DataType="{x:Type vm:StopwatchVM}">
         <view:Stopwatch />
     </DataTemplate>
-    
 </ResourceDictionary>

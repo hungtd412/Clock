@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\HUNG\\.nuget\\packages\\": {}
+    "C:\\Users\\FPT\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HỌC TẬP\\UIT\\HK3\\LẬP TRÌNH TRỰC QUAN\\Clock\\Clock\\Clock.csproj",
+      "projectUniqueName": "D:\\Github\\Clock_Official\\Clock\\Clock\\Clock.csproj",
       "projectName": "Clock",
-      "projectPath": "D:\\HỌC TẬP\\UIT\\HK3\\LẬP TRÌNH TRỰC QUAN\\Clock\\Clock\\Clock.csproj",
-      "packagesPath": "C:\\Users\\HUNG\\.nuget\\packages\\",
-      "outputPath": "D:\\HỌC TẬP\\UIT\\HK3\\LẬP TRÌNH TRỰC QUAN\\Clock\\Clock\\obj\\",
+      "projectPath": "D:\\Github\\Clock_Official\\Clock\\Clock\\Clock.csproj",
+      "packagesPath": "C:\\Users\\FPT\\.nuget\\packages\\",
+      "outputPath": "D:\\Github\\Clock_Official\\Clock\\Clock\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\FPT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

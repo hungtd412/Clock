@@ -12,8 +12,126 @@
     <UserControl.DataContext>
         <vm:StopwatchVM />
     </UserControl.DataContext>
+    
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="53"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Time_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="FontSize" Value="70"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="hr_min_sec_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style  TargetType="TextBlock" x:Key="Flags_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Visibility" Value="Hidden"></Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF340546" Offset="1"/>
+            <GradientStop Color="#FF66277F" Offset="0"/>
+            <GradientStop Color="#FF580C75" Offset="0.631"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
 
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock  Name ="TimeDisplay" 
+                    Grid.Row ="0" 
+                    Style="{StaticResource Time_Display}"
+                    Text="{Binding TimeDisplay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock  Name="hrDisplay" 
+                    Grid.Row="0"  
+                    Text="hr" 
+                    Margin="0 0 275 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <TextBlock  Name="minDisplay" 
+                    Grid.Row="0"  
+                    Text="min" 
+                    Margin="0 0 95 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <TextBlock  Name="secDisplay" 
+                    Grid.Row="0" 
+                    Text="sec" 
+                    Margin="100 0 0 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <Button Name="btnStart" 
+        Content="Start"    
+        Grid.Row="1"
+        Margin="0 0 253 0"/>
+
+        <Button Name="btnLaps" 
+        Content="Laps"   
+        Grid.Row="1"
+         Margin="0,0,0,0" />
+
+        <Button Name="btnClear" 
+        Content="Clear"  
+        Grid.Row="1"
+        Margin="253 0 0 0"/>
+
+
+        <Grid Grid.Row="2" Margin="0,0,0,236">
+            <TextBlock  Text="Laps" 
+            x:Name="txblLaps"  
+            FontSize="20"  
+            Margin="0,0,500,0"
+            Style="{StaticResource Flags_Display}"/>
+
+            <TextBlock  Text="Time" 
+            x:Name="txblTime"
+            Margin="15 0 0 0"
+            Style="{StaticResource Flags_Display}"></TextBlock>
+
+            <TextBlock  Text="Total" 
+            x:Name="txblTotal" 
+            Margin="515 0 0 0"
+            Style="{StaticResource Flags_Display}"></TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="59,37,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,30">
+                <Grid Width="692">
+                    <StackPanel Name="SpLaps" 
+                    Visibility="Hidden" 
+                    HorizontalAlignment="Left" 
+                    Width="128"/>
+
+                    <StackPanel x:Name="SpSpeed"
+                    Visibility="Hidden" 
+                    Margin="133,0,458,0"/>
+
+                    <StackPanel Name="SpTime"
+                    Visibility="Hidden" 
+                    Margin="239,0,268,0" />
+
+                    <StackPanel Name="SpTotal"
+                    Visibility="Hidden" 
+                    Margin="469,0,0,0"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>
