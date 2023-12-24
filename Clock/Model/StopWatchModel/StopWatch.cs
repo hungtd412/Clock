@@ -27,8 +27,8 @@ namespace Clock.Model.StopWatchModel
 
         public StopWatch()
         {
-            Fastest = new Flag(int.MinValue);
-            Slowest = new Flag(int.MaxValue);
+            Fastest = new Flag(int.MaxValue);
+            Slowest = new Flag(int.MinValue);
             _StartTime = "00:00:00.00";
             Laps = -1;
             MainTime = new Time();
@@ -40,7 +40,7 @@ namespace Clock.Model.StopWatchModel
         // gán giá trị của chuỗi hiển thị thời gian
         private void SetTimeDisplay(string value)
         {
-            TimeDisplay = value;
+            this.TimeDisplay = value;
         }
 
         // gán giá trị của chuỗi hiển thị thời gian Flag
@@ -124,7 +124,7 @@ namespace Clock.Model.StopWatchModel
             {
                 Slowest.Value = value;
                 Slowest.PreIndex = Slowest.Index;
-                Slowest.Index = index - Laps - 1;
+                Slowest.Index = index - Laps -1;
             }
             if (value < Fastest.Value)
             {
@@ -143,7 +143,7 @@ namespace Clock.Model.StopWatchModel
             SetTimeDisplay(TimeToString(time));
         }
 
-        // cập nhật chuỗi hiển thị giá trị thời gian của FlagTimeDisplay (index là số phần tử của stackpanel dùng để hiển thị flagtime)
+        // cập nhật chuỗi hiển thị giá trị thời gian của FlagTimeDisplay (index là số phần tử của listview dùng để hiển thị flagtime)
         public void UpdateFlagTimeDisplay(int index)
         {
             SetFlagTimeDisplay(string.Empty);
@@ -153,6 +153,11 @@ namespace Clock.Model.StopWatchModel
             SetFlagIndex(flagtime, index);
 
             SetFlagTimeDisplay(TimeToString(MiliToTime(flagtime)));
+
+            FlagTime.Hours = MainTime.Hours;
+            FlagTime.Minutes = MainTime.Minutes;
+            FlagTime.Seconds = MainTime.Seconds;
+            FlagTime.Milliseconds = MainTime.Milliseconds;
         }
     }
 }
