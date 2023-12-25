@@ -27,7 +27,7 @@ namespace Clock.ViewModel
         private ObservableCollection<string> _LapsList;
         private ObservableCollection<string> _SpeedList;
         private ObservableCollection<string> _TimeList;
-        private ObservableCollection<string> _TotalList;
+        private ObservableCollection<string> _TotalList; 
 
         public ICommand StartCommand { get; set; }
         public ICommand LapsCommand { get; set; }
@@ -54,24 +54,24 @@ namespace Clock.ViewModel
             TimeList = new ObservableCollection<string>();
             TotalList = new ObservableCollection<string>();
 
-            BtnStartContent = "Start";
+            BtnStartContent = "▶️";
             visibility = Visibility.Hidden;
        
             timer = new DispatcherTimer();
             timer.IsEnabled = false;
             timer.Interval = TimeSpan.FromMilliseconds(10);
             timer.Tick += timer_Tick;
-
+            
             StartCommand = new RelayCommand((p) => 
             {
                 if (timer.IsEnabled.ToString() == "False")
                 {
-                    BtnStartContent = "Stop";
+                    BtnStartContent = "⬛";
                     timer.Start();                   
                 }
                 else
                 {
-                    BtnStartContent = "Start";
+                    BtnStartContent = "▶️";
                     timer.Stop();                   
                 }
             }, (p) => { return true; });
@@ -80,7 +80,6 @@ namespace Clock.ViewModel
             {
                 visibility = Visibility.Visible;
                 stopwatch.Laps++;
-
                 LapsList.Insert(0,(stopwatch.Laps+1).ToString());
                 SpeedList.Insert(0, string.Empty);
 
@@ -140,7 +139,6 @@ namespace Clock.ViewModel
                 timer.Stop();
                 visibility = Visibility.Hidden;
                 TimeDisplay = stopwatch.StartTime;
-                // của flagdisplay
                 stopwatch.MainTime.Reset();
                 stopwatch.FlagTime.Reset();
                 stopwatch.Laps = -1;
@@ -150,9 +148,10 @@ namespace Clock.ViewModel
                 SpeedList.Clear();
                 TimeList.Clear();
                 TotalList.Clear();
+                BtnStartContent = "▶️";
 
 
-            }, (p) => { return true; });
+            }, (p) => { if (TimeDisplay == stopwatch.StartTime) return false; return true; });
         }
 
         public void timer_Tick(object sender, EventArgs e)

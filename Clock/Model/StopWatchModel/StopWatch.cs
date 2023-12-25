@@ -124,7 +124,7 @@ namespace Clock.Model.StopWatchModel
             {
                 Slowest.Value = value;
                 Slowest.PreIndex = Slowest.Index;
-                Slowest.Index = index - Laps -1;
+                Slowest.Index = index - Laps - 1;
             }
             if (value < Fastest.Value)
             {
