@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
         Title="TimeTuner" Height="560" Width="1000"
-        MinHeight="450" MinWidth="630"
+        MinHeight="450" MinWidth="700"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"

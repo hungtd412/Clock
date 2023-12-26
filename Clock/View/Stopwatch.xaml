@@ -6,14 +6,203 @@
              xmlns:vm="clr-namespace:Clock.ViewModel"
              xmlns:local="clr-namespace:Clock.View"
              mc:Ignorable="d" 
-             
+             Background="Transparent"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
         <vm:StopwatchVM />
     </UserControl.DataContext>
 
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="Button_IsEnabled" Color="#FF30383E"></SolidColorBrush>
+        <SolidColorBrush x:Key="Button_IsMouseOver" Color="#FF657E90" Opacity="0.9"></SolidColorBrush>
+        <SolidColorBrush x:Key="Button_IsPressed" Color="#FF3F4B54" Opacity="0.8"></SolidColorBrush>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="53"></Setter>
+            <Setter Property="Height" Value="53"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="DarkGray"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="50">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsMouseOver}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsPressed}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsEnabled}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Time_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="FontSize" Value="70"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="hr_min_sec_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style  TargetType="TextBlock" x:Key="Flags_Display">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock  Name ="TimeDisplay" 
+                    Grid.Row ="0" 
+                    Style="{StaticResource Time_Display}"
+                    Text="{Binding TimeDisplay, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+
+        <TextBlock  Name="hrDisplay" 
+                    Grid.Row="0"  
+                    Text="hr" 
+                    Margin="0 0 275 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <TextBlock  Name="minDisplay" 
+                    Grid.Row="0"  
+                    Text="min" 
+                    Margin="0 0 95 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <TextBlock  Name="secDisplay" 
+                    Grid.Row="0" 
+                    Text="sec" 
+                    Margin="100 0 0 0"
+                    Style="{StaticResource hr_min_sec_Display}"></TextBlock>
+
+        <Button
+        Content="{Binding BtnStartContent, UpdateSourceTrigger=PropertyChanged}"    
+        Grid.Row="1"
+        FontSize="25"
+        Padding="1.8 0 0 2.5"
+        Margin="0 0 253 0"
+        Command="{Binding StartCommand}"
+        Foreground="White"
+        Background="#FF3F4952"/>
+
+        <Button  
+        Content= "🏴"
+        FontSize="25"
+        Foreground="White"
+        Grid.Row="1"
+        Margin="0,0,0,0" 
+        Background="#FF3F4952"
+        Command="{Binding LapsCommand}"/>
+
+        <Button  
+        Content="↩"  
+        FontSize="25"
+        Foreground="White"
+        Grid.Row="1"
+        Background="#FF3F4952"
+        Margin="253 0 0 0"
+        Command="{Binding ClearCommand}"/>
+
+        <Grid Grid.Row="2" Width="692">
+            <TextBlock  Text="Laps" 
+                        x:Name="txblLaps"  
+                        FontSize="20"  
+                        Margin="27,0,0,0"
+                        Style="{StaticResource Flags_Display}"
+                        HorizontalAlignment="Left"
+                        Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock  Text="Time" 
+                        x:Name="txblTime"
+                        Style="{StaticResource Flags_Display}"
+                        Margin="0 0 100 0"
+                        Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock  Text="Total" 
+                        x:Name="txblTotal"
+                        Margin="508,0,0,0"
+                        Style="{StaticResource Flags_Display}" HorizontalAlignment="Left"
+                        Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="0,0,0,10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,30">
+                <Grid Width="692">
+                    <ListView Name="Laps" 
+                    Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 
+                    HorizontalAlignment="Left" 
+                    Width="128" 
+                    ItemsSource="{Binding LapsList}"
+                    Foreground="White"
+                    FontSize="20"
+                    BorderThickness ="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Top"
+                    HorizontalContentAlignment="Left"
+                    IsHitTestVisible="False"
+                    Padding="30 0 0 0"/>
+
+
+                    <ListView x:Name="Speed"
+                    Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 
+                    ItemsSource="{Binding SpeedList}"
+                    Margin="133,0,458,0"
+                    Foreground="White"
+                    FontSize="20"
+                    BorderThickness ="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Top"
+                    IsHitTestVisible="False"/>
+
+                    <ListView Name="Time"
+                    Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 
+                    ItemsSource="{Binding TimeList}"
+                    Margin="239,0,268,0" 
+                    Foreground="White"
+                    FontSize="20"
+                    BorderThickness ="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Top"
+                    IsHitTestVisible="False"/>
+
+                    <ListView Name="Total"
+                    Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}"  
+                    ItemsSource="{Binding TotalList}"
+                    Margin="469,0,0,0"
+                    Foreground="White"
+                    FontSize="20"
+                    BorderThickness ="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Top"
+                    IsHitTestVisible="False"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>
