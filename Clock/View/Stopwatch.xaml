@@ -14,58 +14,65 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <SolidColorBrush x:Key="Button_IsEnabled" Color="#FF30383E"></SolidColorBrush>
-        <SolidColorBrush x:Key="Button_IsMouseOver" Color="#FF657E90" Opacity="0.9"></SolidColorBrush>
-        <SolidColorBrush x:Key="Button_IsPressed" Color="#FF3F4B54" Opacity="0.8"></SolidColorBrush>
-        <Style TargetType="Button">
-            <Setter Property="Width" Value="53"></Setter>
-            <Setter Property="Height" Value="53"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="BorderBrush" Value="DarkGray"></Setter>
-            <Setter Property="BorderThickness" Value="2"></Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="50">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsMouseOver}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsPressed}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsEnabled}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="TextBlock" x:Key="Time_Display">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Top"></Setter>
-            <Setter Property="FontSize" Value="70"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-        </Style>
-        <Style TargetType="TextBlock" x:Key="hr_min_sec_Display">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-        </Style>
-        <Style  TargetType="TextBlock" x:Key="Flags_Display">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Top"></Setter>
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-        </Style>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="scroll" Source="/Styles/ScrollBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="Button_IsEnabled" Color="#FF30383E"></SolidColorBrush>
+            <SolidColorBrush x:Key="Button_IsMouseOver" Color="#FF657E90" Opacity="0.9"></SolidColorBrush>
+            <SolidColorBrush x:Key="Button_IsPressed" Color="#FF3F4B54" Opacity="0.8"></SolidColorBrush>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="53"></Setter>
+                <Setter Property="Height" Value="53"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="BorderBrush" Value="DarkGray"></Setter>
+                <Setter Property="BorderThickness" Value="2"></Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="50">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsMouseOver}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsPressed}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button_IsEnabled}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="Time_Display">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="FontSize" Value="70"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="hr_min_sec_Display">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+            <Style  TargetType="TextBlock" x:Key="Flags_Display">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
 
 

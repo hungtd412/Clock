@@ -70,3 +70,4 @@ D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\refint\Clock.dll
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.pdb
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.genruntimeconfig.cache
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\ref\Clock.dll
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Styles\ScrollBar.baml

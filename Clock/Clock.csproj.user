@@ -33,6 +33,9 @@
     <Page Update="Styles\Page.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\ScrollBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\Text.xaml">
       <SubType>Designer</SubType>
     </Page>
