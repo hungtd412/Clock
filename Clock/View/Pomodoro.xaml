@@ -13,13 +13,6 @@
     </UserControl.DataContext>
 
     <Grid>
-        <StackPanel>
-            <TextBlock Height="300" 
-                       Width="400" 
-                       TextWrapping="Wrap"
-                       FontSize="34"
-                       Background="AliceBlue"
-                       Text="kích thước view của các mục (pomo, alarm,...) ở trong phần page.xaml, mục nào size cũng như nhau"/>
-        </StackPanel>
+        
     </Grid>
 </UserControl>
