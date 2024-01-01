@@ -29,7 +29,7 @@ namespace Clock.Model.StopWatchModel
         {
             Fastest = new Flag(int.MaxValue);
             Slowest = new Flag(int.MinValue);
-            _StartTime = "0:0:0.0";
+            _StartTime = "00:00:00.0";
             Laps = -1;
             MainTime = new Time();
             FlagTime = new Time();
@@ -73,7 +73,16 @@ namespace Clock.Model.StopWatchModel
         // chuyển giá trị thời gian từ Time sang string
         private static string TimeToString(Time time)
         {
-            return time.Hours.ToString() + ":" + time.Minutes.ToString() + ":" + time.Seconds.ToString() + "." + time.Milliseconds.ToString();
+            string res = string.Empty;
+
+            if (time.Hours < 10) res += '0' + time.Hours.ToString() + ':';
+            else res += time.Hours.ToString() + ':';
+            if (time.Minutes < 10) res += '0' + time.Minutes.ToString() + ':';
+            else res += time.Minutes.ToString() + ':';
+            if (time.Seconds < 10) res += '0' + time.Seconds.ToString() + '.';
+            else res += time.Seconds.ToString() + '.';
+            res += time.Milliseconds.ToString();
+            return res;
         }
 
         // trừ thời gian để tìm ra thời điểm nhấn Flag
