@@ -175,8 +175,7 @@
                     VerticalContentAlignment="Top"
                     HorizontalContentAlignment="Left"
                     IsHitTestVisible="False"
-                    Padding="30 0 0 0"
-                    FontFamily="/Fonts/#Rubik"/>
+                    Padding="30 0 0 0"/>
 
 
                     <ListView x:Name="Speed"
@@ -188,8 +187,7 @@
                     BorderThickness ="0"
                     Background="Transparent"
                     VerticalContentAlignment="Top"
-                    IsHitTestVisible="False"
-                    FontFamily="/Fonts/#Rubik"/>
+                    IsHitTestVisible="False"/>
 
                     <ListView Name="Time"
                     Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 
