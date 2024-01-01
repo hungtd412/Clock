@@ -47,12 +47,7 @@ namespace Clock.ViewModel
 
             PomodoroCommand = new RelayCommand((p) =>
             {
-                if(Pomodoro_Visibility == Visibility.Visible)
-                {
-                    Pomodoro_Visibility = Visibility.Hidden;
-                    StopWatch_Visibility = Visibility.Visible;
-                }
-                else if(Pomodoro_Visibility == Visibility.Hidden)
+                if(Pomodoro_Visibility == Visibility.Hidden)
                 {
                     Pomodoro_Visibility = Visibility.Visible;
                     StopWatch_Visibility = Visibility.Hidden;
@@ -63,12 +58,7 @@ namespace Clock.ViewModel
             });
             StopwatchCommand = new RelayCommand((p) =>
             {
-                if (StopWatch_Visibility == Visibility.Visible)
-                {
-                    StopWatch_Visibility = Visibility.Hidden;
-                    Pomodoro_Visibility = Visibility.Visible;
-                }
-                else if (StopWatch_Visibility == Visibility.Hidden)
+                if (StopWatch_Visibility == Visibility.Hidden)
                 {
                     StopWatch_Visibility = Visibility.Visible;
                     Pomodoro_Visibility = Visibility.Hidden;
@@ -77,8 +67,6 @@ namespace Clock.ViewModel
             {
                 return true;
             });
-            // Startup Page
-
         }
     }
 }
