@@ -65,12 +65,14 @@
                 <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="/Fonts/#Rubik" />
             </Style>
             <Style  TargetType="TextBlock" x:Key="Flags_Display">
                 <Setter Property="HorizontalAlignment" Value="Center"></Setter>
                 <Setter Property="VerticalAlignment" Value="Top"></Setter>
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="/Fonts/#Rubik" />
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -148,12 +150,12 @@
             <TextBlock  Text="Time" 
                         x:Name="txblTime"
                         Style="{StaticResource Flags_Display}"
-                        Margin="0 0 100 0"
+                        Margin="0 0 120 0"
                         Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock  Text="Total" 
                         x:Name="txblTotal"
-                        Margin="508,0,0,0"
+                        Margin="488,0,0,0"
                         Style="{StaticResource Flags_Display}" HorizontalAlignment="Left"
                         Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
@@ -173,7 +175,8 @@
                     VerticalContentAlignment="Top"
                     HorizontalContentAlignment="Left"
                     IsHitTestVisible="False"
-                    Padding="30 0 0 0"/>
+                    Padding="30 0 0 0"
+                    FontFamily="/Fonts/#Rubik"/>
 
 
                     <ListView x:Name="Speed"
@@ -185,7 +188,8 @@
                     BorderThickness ="0"
                     Background="Transparent"
                     VerticalContentAlignment="Top"
-                    IsHitTestVisible="False"/>
+                    IsHitTestVisible="False"
+                    FontFamily="/Fonts/#Rubik"/>
 
                     <ListView Name="Time"
                     Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 
