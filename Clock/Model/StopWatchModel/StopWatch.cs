@@ -29,7 +29,7 @@ namespace Clock.Model.StopWatchModel
         {
             Fastest = new Flag(int.MaxValue);
             Slowest = new Flag(int.MinValue);
-            _StartTime = "00:00:00.00";
+            _StartTime = "00:00:00.0";
             Laps = -1;
             MainTime = new Time();
             FlagTime = new Time();
@@ -53,7 +53,7 @@ namespace Clock.Model.StopWatchModel
         private static void UpdateTime(ref Time time)
         {
             time.Milliseconds++;
-            if (time.Milliseconds == 100)
+            if (time.Milliseconds == 9)
             {
                 time.Milliseconds = 0;
                 time.Seconds++;
@@ -75,26 +75,21 @@ namespace Clock.Model.StopWatchModel
         {
             string res = string.Empty;
 
-            if (time.Hours < 10) res += "0" + time.Hours.ToString() + ":";
-            else res += time.Hours.ToString() + ":";
-
-            if (time.Minutes < 10) res += "0" + time.Minutes.ToString() + ":";
-            else res += time.Minutes.ToString() + ":";
-
-            if (time.Seconds < 10) res += "0" + time.Seconds.ToString() + ".";
-            else res += time.Seconds.ToString() + ".";
-
-            if (time.Milliseconds < 10) res += "0" + time.Milliseconds.ToString();
-            else res += time.Milliseconds.ToString();
-
+            if (time.Hours < 10) res += '0' + time.Hours.ToString() + ':';
+            else res += time.Hours.ToString() + ':';
+            if (time.Minutes < 10) res += '0' + time.Minutes.ToString() + ':';
+            else res += time.Minutes.ToString() + ':';
+            if (time.Seconds < 10) res += '0' + time.Seconds.ToString() + '.';
+            else res += time.Seconds.ToString() + '.';
+            res += time.Milliseconds.ToString();
             return res;
         }
 
         // trừ thời gian để tìm ra thời điểm nhấn Flag
         private static int SubtractTime(Time maintime, Time flagtime)
         {
-            int res_maintime = maintime.Milliseconds * 10 + maintime.Seconds * 1000 + maintime.Minutes * 60 * 1000 + maintime.Hours * 60 * 60 * 1000;
-            int res_flagtime = flagtime.Milliseconds * 10 + flagtime.Seconds * 1000 + flagtime.Minutes * 60 * 1000 + maintime.Hours * 60 * 60 * 1000;
+            int res_maintime = maintime.Milliseconds * 100 + maintime.Seconds * 1000 + maintime.Minutes * 60 * 1000 + maintime.Hours * 60 * 60 * 1000;
+            int res_flagtime = flagtime.Milliseconds * 100 + flagtime.Seconds * 1000 + flagtime.Minutes * 60 * 1000 + maintime.Hours * 60 * 60 * 1000;
             return res_maintime - res_flagtime;
         }
 
@@ -112,7 +107,7 @@ namespace Clock.Model.StopWatchModel
             time.Seconds = (int)(value / 1000);
             value -= time.Seconds * 1000;
 
-            time.Milliseconds = (int)(value / 10);
+            time.Milliseconds = (int)(value / 100);
 
             return time;
         }

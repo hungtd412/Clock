@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,8 +28,8 @@ namespace Clock.ViewModel
         private ObservableCollection<string> _LapsList;
         private ObservableCollection<string> _SpeedList;
         private ObservableCollection<string> _TimeList;
-        private ObservableCollection<string> _TotalList; 
-
+        private ObservableCollection<string> _TotalList;
+        
         public ICommand StartCommand { get; set; }
         public ICommand LapsCommand { get; set; }
         public ICommand ClearCommand { get; set; }
@@ -42,8 +43,6 @@ namespace Clock.ViewModel
         public ObservableCollection<string> TimeList { get => _TimeList; set { _TimeList = value; OnPropertyChanged(); } }
         public ObservableCollection<string> TotalList { get => _TotalList; set { _TotalList = value; OnPropertyChanged(); } }
 
-        
-
         public StopwatchVM() 
         {
             stopwatch = new();
@@ -56,11 +55,11 @@ namespace Clock.ViewModel
 
             BtnStartContent = "▶️";
             visibility = Visibility.Hidden;
-       
+            
             timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(107.99999999999999275);
+            timer.Tick += Timer_Tick;
             timer.IsEnabled = false;
-            timer.Interval = TimeSpan.FromMilliseconds(10);
-            timer.Tick += timer_Tick;
             
             StartCommand = new RelayCommand((p) => 
             {
@@ -151,10 +150,10 @@ namespace Clock.ViewModel
                 BtnStartContent = "▶️";
 
 
-            }, (p) => { if (TimeDisplay == stopwatch.StartTime) return false; return true; });
+            }, (p) => { if (TimeDisplay == stopwatch.StartTime || timer.IsEnabled.ToString() == "True") return false; return true; });
         }
 
-        public void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object? sender, EventArgs e)
         {
             stopwatch.UpdateTimeDisplay();
             TimeDisplay = stopwatch.TimeDisplay;

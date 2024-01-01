@@ -8,7 +8,7 @@
         xmlns:Menu="clr-namespace:Clock.Utilities"
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
-        Title="TimeTuner" Height="560" Width="1000"
+        Title="TimeTuner" Height="780" Width="1150"
         MinHeight="450" MinWidth="700"
         WindowStyle="None"
         ResizeMode="CanResize"
@@ -214,9 +214,16 @@
 
                 <!--// View //-->
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" Visibility="{Binding Pomodoro_Visibility, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl x:Name="Pages"
-                                Content="{Binding CurrentView}" Grid.ColumnSpan="2" />
+                                Content="{Binding Pomodoro}" Grid.ColumnSpan="2" 
+                                    />
+                </Grid>
+
+                <Grid Grid.Row="1" Visibility="{Binding StopWatch_Visibility, UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl Grid.ColumnSpan="2"
+                                    Content="{Binding StopWatch}"/>
+
                 </Grid>
             </Grid>
         </Grid>
