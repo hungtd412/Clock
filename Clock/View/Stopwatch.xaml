@@ -161,7 +161,7 @@
         </Grid>
 
         <Grid Grid.Row="3" Margin="0,0,0,10">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,30">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="500" VerticalAlignment="Top">
                 <Grid Width="692">
                     <ListView Name="Laps" 
                     Visibility="{Binding visibility, UpdateSourceTrigger=PropertyChanged}" 

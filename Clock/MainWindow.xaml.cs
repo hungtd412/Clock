@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Clock.Commands;
 using System.Windows.Shapes;
+using Forms = System.Windows.Forms;
+using System.Drawing;
+using System.Reflection;
 
 namespace Clock
 {
@@ -27,7 +30,7 @@ namespace Clock
             InitializeComponent();
         }
 
-        private Point startPoint;
+        private System.Windows.Point startPoint;
 
         private void Drag_Move(object sender, MouseButtonEventArgs e)
         {
@@ -41,7 +44,7 @@ namespace Clock
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 // Calculate the distance moved from the starting point
-                Point currentPoint = e.GetPosition(this);
+                System.Windows.Point currentPoint = e.GetPosition(this);
                 Vector diff = startPoint - currentPoint;
 
                 // If the mouse has moved a certain distance, initiate the drag
@@ -61,7 +64,7 @@ namespace Clock
         }
 
         bool isMax = false;  //trạng thái hiện tại của nút maximize, minimize.
-        private void Maximize_Click(object sender, RoutedEventArgs e)
+        public void Maximize_Click(object sender, RoutedEventArgs e)
         {
             isMax = !isMax;
             if (isMax) // nếu đang full màn hình
@@ -93,7 +96,7 @@ namespace Clock
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            WindowStyleControl.Exit();
+            this.Hide();
         }
     }
 }
