@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Clock.Commands;
 using System.Windows.Shapes;
+using Forms = System.Windows.Forms;
+using System.Drawing;
+using System.Reflection;
 
 namespace Clock
 {
@@ -27,29 +30,24 @@ namespace Clock
             InitializeComponent();
         }
 
-        private Point startPoint;
+        private System.Windows.Point startPoint;
 
         private void Drag_Move(object sender, MouseButtonEventArgs e)
         {
-            // Record the starting point when the mouse button is pressed
             startPoint = e.GetPosition(this);
         }
 
         private void Grid_MouseMove(object sender, MouseEventArgs e)
         {
-            // Check if the left mouse button is pressed
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                // Calculate the distance moved from the starting point
-                Point currentPoint = e.GetPosition(this);
+                System.Windows.Point currentPoint = e.GetPosition(this);
                 Vector diff = startPoint - currentPoint;
 
-                // If the mouse has moved a certain distance, initiate the drag
                 if (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                     Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
                 {
                     isMax = false;
-                    // Perform drag logic here
                     if (!isMax)
                         this.BorderThickness = new Thickness(0.7);
                     else
@@ -61,7 +59,7 @@ namespace Clock
         }
 
         bool isMax = false;  //trạng thái hiện tại của nút maximize, minimize.
-        private void Maximize_Click(object sender, RoutedEventArgs e)
+        public void Maximize_Click(object sender, RoutedEventArgs e)
         {
             isMax = !isMax;
             if (isMax) // nếu đang full màn hình
@@ -93,7 +91,7 @@ namespace Clock
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            WindowStyleControl.Exit();
+            this.Hide();
         }
     }
 }
