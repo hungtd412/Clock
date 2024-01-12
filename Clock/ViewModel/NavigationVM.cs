@@ -20,6 +20,7 @@ namespace Clock.ViewModel
 
         public Visibility Pomodoro_Visibility { get => _Pomodoro_Visibility; set { _Pomodoro_Visibility = value; OnPropertyChanged(); } }
         public Visibility StopWatch_Visibility { get => _StopWatch_Visibility; set { _StopWatch_Visibility = value; OnPropertyChanged(); } }
+
         public object Pomodoro
         {
             get { return _Pomodoro; }
@@ -33,8 +34,6 @@ namespace Clock.ViewModel
         }
 
         public ICommand PomodoroCommand { get; set; }
-        public ICommand TimerCommand { get; set; }
-        public ICommand AlarmCommand { get; set; }
         public ICommand StopwatchCommand { get; set; }
 
 

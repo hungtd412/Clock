@@ -73,35 +73,6 @@
 
                     </Menu:Btn>
 
-                    <!--// Timer //-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding TimerCommand}">
-                        <Grid>
-                            <Image Source="Images/timer_icon.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Timer"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
-
-                    <!--// Alarm //-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding AlarmCommand}">
-                        <Grid>
-                            <Image Source="Images/alarm_icon.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Alarm"
-                                       Style="{StaticResource Text_Style}" />
-                        </Grid>
-
-                    </Menu:Btn>
-
                     <!--// Stopwatch //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
