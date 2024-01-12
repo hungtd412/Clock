@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using Forms = System.Windows.Forms;
 
@@ -34,11 +35,9 @@ namespace Clock
             notifyIcon.Text = "Clock";
             notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
             notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
-            notifyIcon.ContextMenuStrip.Items.Add("Exit Clock",null, ExitAppClicked);
+            notifyIcon.ContextMenuStrip.Items.Add("Exit Clock", null, ExitAppClicked);
 
-            string pathIcon = GetPathForIconOfNotify();
-
-            notifyIcon.Icon = new System.Drawing.Icon(GetPathForIconOfNotify());
+            notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
         }
 
         void ExitAppClicked(object sender, EventArgs e)
@@ -56,18 +55,8 @@ namespace Clock
         private void NotifyIcon_DoubleClick(object? sender, EventArgs e)
         {
             MainWindow.Show();
-            if (MainWindow.WindowState == WindowState.Minimized) 
-                MainWindow.WindowState = WindowState.Normal;
-        }
-
-        string GetPathForIconOfNotify()
-        {
-            string projectDirectory = AppContext.BaseDirectory;
-            DirectoryInfo parentDirectory = Directory.GetParent(projectDirectory);
-            parentDirectory = Directory.GetParent(parentDirectory.FullName);
-            parentDirectory = Directory.GetParent(parentDirectory.FullName);
-            parentDirectory = Directory.GetParent(parentDirectory.FullName);
-            return parentDirectory.FullName + "/Images/notifyicon_icon.ico";
+            //if (MainWindow.WindowState == WindowState.Minimized) 
+            //    MainWindow.WindowState = WindowState.Normal;
         }
 
         protected override void OnExit(ExitEventArgs e) 

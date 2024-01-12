@@ -73,3 +73,5 @@ D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\ref\Clock.dll
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Styles\ScrollBar.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Styles\ScrollBar.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Styles\ToggleButton.baml
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Clock.Properties.Resources.resources
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.GenerateResource.cache

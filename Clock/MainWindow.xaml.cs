@@ -52,7 +52,6 @@ namespace Clock
                     Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
                 {
                     isMax = false;
-                    // Perform drag logic here
                     if (!isMax)
                         this.BorderThickness = new Thickness(0.7);
                     else
