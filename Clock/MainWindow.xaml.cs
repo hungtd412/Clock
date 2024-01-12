@@ -34,20 +34,16 @@ namespace Clock
 
         private void Drag_Move(object sender, MouseButtonEventArgs e)
         {
-            // Record the starting point when the mouse button is pressed
             startPoint = e.GetPosition(this);
         }
 
         private void Grid_MouseMove(object sender, MouseEventArgs e)
         {
-            // Check if the left mouse button is pressed
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                // Calculate the distance moved from the starting point
                 System.Windows.Point currentPoint = e.GetPosition(this);
                 Vector diff = startPoint - currentPoint;
 
-                // If the mouse has moved a certain distance, initiate the drag
                 if (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                     Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
                 {

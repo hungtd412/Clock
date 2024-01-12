@@ -27,14 +27,13 @@ namespace Clock
             notifyIcon = new Forms.NotifyIcon();
         }
 
-        
-
         void AddNotifyIcon()
         {
             notifyIcon.Visible = true;
             notifyIcon.Text = "Clock";
             notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
             notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
+            notifyIcon.ContextMenuStrip.Items.Add("Open Clock", null, NotifyIcon_DoubleClick);
             notifyIcon.ContextMenuStrip.Items.Add("Exit Clock", null, ExitAppClicked);
 
             notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
@@ -55,7 +54,7 @@ namespace Clock
         private void NotifyIcon_DoubleClick(object? sender, EventArgs e)
         {
             MainWindow.Show();
-            //if (MainWindow.WindowState == WindowState.Minimized) 
+            //if (MainWindow.WindowState == WindowState.Minimized)
             //    MainWindow.WindowState = WindowState.Normal;
         }
 

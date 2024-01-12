@@ -8,7 +8,7 @@
         xmlns:Menu="clr-namespace:Clock.Utilities"
         mc:Ignorable="d"
         Icon="Images/app_icon.png"
-        Title="TimeTuner" Height="780" Width="1150"
+        Title="Clock" Height="780" Width="1150"
         MinHeight="450" MinWidth="700"
         WindowStyle="None"
         ResizeMode="CanResize"
