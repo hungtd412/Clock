@@ -15,7 +15,7 @@
 
     <Grid Focusable="True">
         <Canvas x:Name="Cv_Focus" 
-    Margin="20,20,458,278">
+                Margin="20,20,458,278">
             <Rectangle Width="386" 
                Height="442"
                Style="{StaticResource RTG_Default}" HorizontalAlignment="Center"/>
