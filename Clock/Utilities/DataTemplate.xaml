@@ -5,15 +5,7 @@
 
 
     <DataTemplate DataType="{x:Type vm:PomodoroVM}">
-        <view:Pomodoro />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:TimerVM}">
-        <view:Timer />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AlarmVM}">
-        <view:Alarm/>
+        <view:EditDailyGoalView />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:StopwatchVM}">

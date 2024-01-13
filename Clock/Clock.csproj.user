@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\Alarm.xaml.cs">
+    <Compile Update="View\EditDailyGoalView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Pomodoro.xaml.cs">
@@ -16,15 +16,15 @@
     <Compile Update="View\Stopwatch.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Timer.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ComboBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Image.xaml">
@@ -42,16 +42,13 @@
     <Page Update="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Alarm.xaml">
+    <Page Update="View\EditDailyGoalView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Pomodoro.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Stopwatch.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\Timer.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

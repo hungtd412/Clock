@@ -5,28 +5,42 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Fonts\Rubik-Medium.ttf" />
     <None Remove="Fonts\Rubik-Regular.ttf" />
-    <None Remove="Images\alarm_icon.png" />
     <None Remove="Images\app_icon.png" />
     <None Remove="Images\blue_tick.png" />
+    <None Remove="Images\notifyicon_icon.ico" />
     <None Remove="Images\pomodoro_icon.png" />
     <None Remove="Images\stopwatch_icon.png" />
-    <None Remove="Images\timer_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\Rubik-Medium.ttf" />
     <Resource Include="Fonts\Rubik-Regular.ttf" />
-    <Resource Include="Images\alarm_icon.png" />
     <Resource Include="Images\app_icon.png" />
     <Resource Include="Images\blue_tick.png" />
+    <EmbeddedResource Include="Images\notifyicon_icon.ico" />
     <Resource Include="Images\pomodoro_icon.png" />
     <Resource Include="Images\stopwatch_icon.png" />
-    <Resource Include="Images\timer_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

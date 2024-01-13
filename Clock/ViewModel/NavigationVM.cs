@@ -20,6 +20,7 @@ namespace Clock.ViewModel
 
         public Visibility Pomodoro_Visibility { get => _Pomodoro_Visibility; set { _Pomodoro_Visibility = value; OnPropertyChanged(); } }
         public Visibility StopWatch_Visibility { get => _StopWatch_Visibility; set { _StopWatch_Visibility = value; OnPropertyChanged(); } }
+
         public object Pomodoro
         {
             get { return _Pomodoro; }
@@ -33,8 +34,6 @@ namespace Clock.ViewModel
         }
 
         public ICommand PomodoroCommand { get; set; }
-        public ICommand TimerCommand { get; set; }
-        public ICommand AlarmCommand { get; set; }
         public ICommand StopwatchCommand { get; set; }
 
 
@@ -47,12 +46,7 @@ namespace Clock.ViewModel
 
             PomodoroCommand = new RelayCommand((p) =>
             {
-                if(Pomodoro_Visibility == Visibility.Visible)
-                {
-                    Pomodoro_Visibility = Visibility.Hidden;
-                    StopWatch_Visibility = Visibility.Visible;
-                }
-                else if(Pomodoro_Visibility == Visibility.Hidden)
+                if(Pomodoro_Visibility == Visibility.Hidden)
                 {
                     Pomodoro_Visibility = Visibility.Visible;
                     StopWatch_Visibility = Visibility.Hidden;
@@ -63,12 +57,7 @@ namespace Clock.ViewModel
             });
             StopwatchCommand = new RelayCommand((p) =>
             {
-                if (StopWatch_Visibility == Visibility.Visible)
-                {
-                    StopWatch_Visibility = Visibility.Hidden;
-                    Pomodoro_Visibility = Visibility.Visible;
-                }
-                else if (StopWatch_Visibility == Visibility.Hidden)
+                if (StopWatch_Visibility == Visibility.Hidden)
                 {
                     StopWatch_Visibility = Visibility.Visible;
                     Pomodoro_Visibility = Visibility.Hidden;
@@ -77,8 +66,6 @@ namespace Clock.ViewModel
             {
                 return true;
             });
-            // Startup Page
-
         }
     }
 }
