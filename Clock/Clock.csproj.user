@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\EditDailyGoalView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Pomodoro.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ComboBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Image.xaml">
@@ -34,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utilities\DataTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDailyGoalView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Pomodoro.xaml">
