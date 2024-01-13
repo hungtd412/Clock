@@ -12,6 +12,7 @@
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary x:Name="ComboBoxStyle" Source="/Styles/ComboBox.xaml"/>
+                <ResourceDictionary x:Name="scroll" Source="/Styles/ScrollBar.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>
@@ -48,10 +49,50 @@
                 <ComboBoxItem Content="8 hours"/>
             </ComboBox>
 
-            <TextBlock Text="Daily goal" 
+            <TextBlock Text="Clear daily progress and completed tasks" 
                        FontWeight="Regular" FontSize="15"
                        Style="{StaticResource txbl_Default}"
                        Canvas.Left="0" Canvas.Top="140"/>
+
+            <StackPanel Canvas.Top="170" Orientation="Horizontal">
+                <ComboBox Margin="45 0 0 0"
+                      x:Name="pickHour" Width="70">
+                </ComboBox>
+
+                <ComboBox Margin="5 0 0 0"
+                      x:Name="pickMinute" Width="70">
+                </ComboBox>
+
+                <ComboBox Margin="5 0 0 0"
+                      x:Name="pickAMPM" Width="70">
+                </ComboBox>
+            </StackPanel>
+
+            <TextBlock Text="Hour" 
+                       FontWeight="Regular" FontSize="15"
+                       Style="{StaticResource txbl_Default}"
+                       Canvas.Left="60" Canvas.Top="200"/>
+
+            <TextBlock Text="Minute"
+                       FontWeight="Regular" FontSize="15"
+                       Style="{StaticResource txbl_Default}"
+                       Canvas.Left="130" Canvas.Top="200"/>
+
+            <TextBlock Text="AM or PM"
+                       FontWeight="Regular" FontSize="15"
+                       Style="{StaticResource txbl_Default}"
+                       Canvas.Left="195" Canvas.Top="200"/>
+
+            <CheckBox Canvas.Left="10" Canvas.Top="250">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+
+            <TextBlock Text="Include weekends in streaks"
+                       FontWeight="Regular" FontSize="15"
+                       Style="{StaticResource txbl_Default}"
+                       Canvas.Left="40" Canvas.Top="250"/>
 
             <StackPanel Canvas.Top="295" Orientation="Horizontal" Margin="20 0 0 0">
                 <Button

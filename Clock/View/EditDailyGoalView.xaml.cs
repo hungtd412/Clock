@@ -23,6 +23,18 @@ namespace Clock.View
         public EditDailyGoalView()
         {
             InitializeComponent();
+            for (int i = 0; i <= 59; i++)
+            {
+                pickMinute.Items.Add(i.ToString("D2"));
+            }
+
+            for (int i = 1; i <= 12; i++)
+            {
+                pickHour.Items.Add(i.ToString("D2"));
+            }
+
+            pickAMPM.Items.Add("AM");
+            pickAMPM.Items.Add("PM");
         }
 
         private void PickTime_SelectionChanged(object sender, SelectionChangedEventArgs e)
