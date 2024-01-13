@@ -8,14 +8,6 @@
         <view:Pomodoro />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:TimerVM}">
-        <view:Timer />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AlarmVM}">
-        <view:Alarm/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type vm:StopwatchVM}">
         <view:Stopwatch />
     </DataTemplate>

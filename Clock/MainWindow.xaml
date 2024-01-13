@@ -187,12 +187,12 @@
 
                 <Grid Grid.Row="1" Visibility="{Binding Pomodoro_Visibility, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl x:Name="Pages"
-                                Content="{Binding Pomodoro}" Grid.ColumnSpan="2" 
+                                Content="{Binding Pomodoro}"
                                     />
                 </Grid>
 
                 <Grid Grid.Row="1" Visibility="{Binding StopWatch_Visibility, UpdateSourceTrigger=PropertyChanged}">
-                    <ContentControl Grid.ColumnSpan="2"
+                    <ContentControl 
                                     Content="{Binding StopWatch}"/>
 
                 </Grid>

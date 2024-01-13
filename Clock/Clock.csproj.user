@@ -7,16 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\Alarm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\Pomodoro.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Stopwatch.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\Timer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -42,16 +36,10 @@
     <Page Update="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Alarm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="View\Pomodoro.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Stopwatch.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\Timer.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

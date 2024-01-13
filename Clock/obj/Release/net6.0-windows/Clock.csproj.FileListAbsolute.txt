@@ -10,10 +10,8 @@ D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-w
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Styles\ScrollBar.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Styles\Text.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\MainWindow.g.cs
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Alarm.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Pomodoro.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Stopwatch.g.cs
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Timer.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\App.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock_MarkupCompile.cache
@@ -21,10 +19,8 @@ D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-w
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\App.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\MainWindow.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Utilities\DataTemplate.baml
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Alarm.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Pomodoro.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Stopwatch.baml
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\View\Timer.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock.g.resources
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock.GeneratedMSBuildEditorConfig.editorconfig
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock.AssemblyInfoInputs.cache
