@@ -24,6 +24,8 @@
     <Resource Include="Images\app_icon.png" />
     <Resource Include="Images\blue_tick.png" />
     <EmbeddedResource Include="Images\notifyicon_icon.ico" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+    <PackageReference Include="Unnoficial.Microsoft.Expression.Drawing" Version="1.0.0" />
     <Resource Include="Images\pomodoro_icon.png" />
     <Resource Include="Images\stopwatch_icon.png" />
   </ItemGroup>

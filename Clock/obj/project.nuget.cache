@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "IwRKRJr8BZkE14YmYRmBn8xaHf2G3v77u8aom/3ls+cwi+o6pEHnoKhQWQjvT/HNMcgTUC55EiuBH9x3BC+bSQ==",
+  "dgSpecHash": "EmM5+68xRx42jzrPxzP0/txw5/z9ovD1RzL2XPX0x9TKssnRDdjBTVIMYwxTbQa2uBEwBbeweRabsfe03JA+OQ==",
   "success": true,
-  "projectFilePath": "D:\\HỌC TẬP\\UIT\\HK3\\LẬP TRÌNH TRỰC QUAN\\Clock\\Clock\\Clock.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "D:\\Github\\Clock_Official\\Clock\\Clock\\Clock.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\FPT\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
+    "C:\\Users\\FPT\\.nuget\\packages\\unnoficial.microsoft.expression.drawing\\1.0.0\\unnoficial.microsoft.expression.drawing.1.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Unnoficial.Microsoft.Expression.Drawing 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Unnoficial.Microsoft.Expression.Drawing",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }
