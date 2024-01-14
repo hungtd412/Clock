@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -39,16 +40,30 @@ namespace Clock
             notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
         }
 
-        void ExitAppClicked(object sender, EventArgs e)
-        {
-            Shutdown();
-        }
+
+        private static Mutex _mutex = null;
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            AddNotifyIcon();
 
+            const string appName = "Clock";
+            bool createdNew;
+
+            _mutex = new Mutex(true, appName, out createdNew);
+
+            if (!createdNew)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+
+            AddNotifyIcon();
             base.OnStartup(e);
+        }
+
+
+        void ExitAppClicked(object sender, EventArgs e)
+        {
+            Shutdown();
         }
 
         private void NotifyIcon_DoubleClick(object? sender, EventArgs e)
