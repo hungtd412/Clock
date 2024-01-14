@@ -93,5 +93,11 @@ namespace Clock
         {
             this.Hide();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }
