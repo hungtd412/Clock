@@ -15,7 +15,8 @@
         WindowStartupLocation="CenterScreen" 
         WindowState="Normal" BorderBrush="#427ef5" BorderThickness="0.7"
         Background="Transparent"
-        SizeChanged="Window_SizeChanged">
+        SizeChanged="Window_SizeChanged"
+        Closing="Window_Closing">
 
     <Window.DataContext>
         <vm:NavigationVM />
