@@ -58,7 +58,7 @@ namespace Clock.View
             breakTime.Tick += BreakTime_Tick;
 
             notifyIcon = new Forms.NotifyIcon();
-            notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
+            //notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
             notifyIcon.Visible = true;
         }
 
