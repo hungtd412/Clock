@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              xmlns:vm="clr-namespace:Clock.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Clock.View"
              mc:Ignorable="d" 
              Style="{StaticResource Page_Style}"
@@ -13,8 +14,7 @@
     <UserControl.DataContext>
         <vm:PomodoroVM />
     </UserControl.DataContext>
-
-    <Grid Focusable="True">
+    <Grid Focusable="True" >
         <Canvas x:Name="Cv_Focus" 
                 Margin="20,20,458,278"
                 Visibility="{Binding SettingVisibility}">
@@ -89,7 +89,8 @@
              SelectionBrush="#FFB45CE0"
              CaretBrush="White"
              MaxLength="3"
-             Text="{Binding FocusTimeDisplay, Mode=TwoWay}"/>
+             Text="{Binding FocusTimeDisplay, Mode=TwoWay}">
+            </TextBox>
 
             <TextBlock Style="{StaticResource txbl_Default}"
                FontSize="17"
@@ -106,7 +107,8 @@
             Background="MediumPurple"
             Content="Start focus session"
             Foreground="Black"
-            Padding="0"/>
+            Padding="0"
+            Command="{Binding StartFocus}"/>
 
         </Canvas>
 
@@ -262,9 +264,9 @@
                Style="{StaticResource RTG_Default}" HorizontalAlignment="Center" Canvas.Top="2"/>
             <Button Style="{StaticResource Icon_Button_Style}"
             Content="➕" 
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"
-            Padding="0" Canvas.Left="351"/>
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Padding="0" Canvas.Left="348" Canvas.Top="1"/>
             <TextBlock Name="Stay_on_track"
         Style="{StaticResource txbl_Default}"
         Text="Stay on track"
@@ -305,7 +307,8 @@
               Canvas.Top="40"
               Visibility="Hidden"
               BorderThickness="0"
-              ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+              ItemsSource="{Binding Tasks}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBox x:Name="NewTB"
@@ -317,7 +320,7 @@
                          Margin="3 3 3 0"
                          TextWrapping="Wrap"
                          FocusManager.FocusedElement="{Binding ElementName=NewTB}"
-                  />
+                         />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -343,7 +346,7 @@
     Stretch="None"
     ArcThickness="18" Canvas.Left="110" Canvas.Top="17"
     ArcThicknessUnit="Pixel"
-    EndAngle="0"
+    EndAngle="{Binding PercentGoal}"
      HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="Daily goal"
        Style="{StaticResource txbl_Default}" 
@@ -359,14 +362,14 @@
             <TextBlock Text="Completed:"
        Style="{StaticResource txbl_Default}"
        FontSize="15" Canvas.Left="130" Canvas.Top="214" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock Text="0 minutes"
+            <TextBlock Text="{Binding Completed}"
        Style="{StaticResource txbl_Default}"
        FontSize="15" Canvas.Left="211" Canvas.Top="214" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             <TextBlock Text="Yesterday"
 Style="{StaticResource txbl_Default}" 
 Canvas.Left="16" Canvas.Top="63"
 FontSize="15" HorizontalAlignment="Left"/>
-            <TextBlock Text="0"
+            <TextBlock Text="{Binding Yesterday}"
 Style="{StaticResource txbl_Default}"
 TextAlignment="Center"
 FontSize="33" Canvas.Left="20" Canvas.Top="82" VerticalAlignment="Center" HorizontalAlignment="Left" Width="54"/>
@@ -377,7 +380,7 @@ FontSize="15" Canvas.Left="21" Canvas.Top="126" VerticalAlignment="Center" Horiz
 Style="{StaticResource txbl_Default}" 
 Canvas.Left="330" Canvas.Top="62"
 FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock Text="2"
+            <TextBlock Text="{Binding Streaks}"
 TextAlignment="Center"
 Style="{StaticResource txbl_Default}"
 FontSize="33" Canvas.Left="326" Canvas.Top="82" VerticalAlignment="Center" HorizontalAlignment="Left" Width="53"/>
@@ -392,7 +395,7 @@ Canvas.Top="5"/>
             <Button Style="{StaticResource Icon_Button_Style}"
 Content="✏️"
     FontSize="15"
-Padding="0" Canvas.Left="359" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
 
         <Canvas x:Name="Cv_Countdown" 
@@ -416,33 +419,36 @@ Padding="0" Canvas.Left="359" HorizontalAlignment="Left" VerticalAlignment="Cent
                Style="{StaticResource txbl_Default}"
                FontSize="100"
                Background="Transparent"
-               HorizontalAlignment="Left" Canvas.Left="112" Canvas.Top="57"
+               HorizontalAlignment="Left" Canvas.Top="57"
                Text="{Binding CountdownDisplay}"/>
 
             <Button x:Name="Pause_Button"
             Style="{StaticResource UpDown_Button}"
-            Content="Pause"
+            Content="{Binding BtnPauseContent}"
             FontSize="25" Canvas.Left="-91" Canvas.Top="246"
             Width="80"
             Height="80"
-            Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Command="{Binding Pause}"/>
 
             <Button x:Name="Back_Button"
         Style="{StaticResource UpDown_Button}"
-        Content="Back"
+        Content="↩"
         FontSize="25" Canvas.Left="72" Canvas.Top="246"
         Width="80"
         Height="80"
-        IsEnabled="False"
-        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        IsEnabled="{Binding BackButtonEnable}"
+        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+        Command="{Binding Back}"/>
 
             <Button x:Name="Skip_Button"
         Style="{StaticResource UpDown_Button}"
-        Content="Skip"
+        Content="⏩"
         FontSize="25" Canvas.Left="238" Canvas.Top="246"
         Width="80"
         Height="80"
-        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+        Command="{Binding Skip}"/>
         </Canvas>
     </Grid>
 </UserControl>

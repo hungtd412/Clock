@@ -16,8 +16,8 @@ namespace Clock.Model.PomodoroModel
 
         public int Minutes { get => _Minutes; set => _Minutes = value; }
         public int Seconds { get => _Seconds; set => _Seconds = value; }
-        private int SettingMinutes { get => _SettingMinutes; set => _SettingMinutes = value; }
-        private int SettingSeconds { get => _SettingSeconds; set => _SettingSeconds = value; }
+        public int SettingMinutes { get => _SettingMinutes; set => _SettingMinutes = value; }
+        public int SettingSeconds { get => _SettingSeconds; set => _SettingSeconds = value; }
 
         public PomodoroTime()
         {
