@@ -300,8 +300,7 @@
               Canvas.Top="40"
               Visibility="Hidden"
               BorderThickness="0"
-              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-              ItemsSource="{Binding Tasks}">
+              ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBox x:Name="NewTB"
@@ -393,8 +392,13 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
                Style="{StaticResource txbl_Default}"
                FontSize="100"
                Background="Transparent"
-               HorizontalAlignment="Left" Canvas.Top="57"
-               Text="{Binding CountdownDisplay}"/>
+               HorizontalAlignment="Left" Canvas.Top="57"/>
+
+            <TextBlock Text="Remaining"
+               Style="{StaticResource txbl_Default}"
+               FontSize="50"
+               Background="Transparent"
+               HorizontalAlignment="Left" Canvas.Top="-30"/>
 
             <Button x:Name="Pause_Button"
             Style="{StaticResource UpDown_Button}"
@@ -411,7 +415,6 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
         FontSize="25" Canvas.Left="72" Canvas.Top="246"
         Width="80"
         Height="80"
-        IsEnabled="{Binding BackButtonEnable}"
         Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
         Click="Back_Button_Click"/>
 
