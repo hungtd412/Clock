@@ -106,12 +106,28 @@ namespace Clock.ViewModel
 
             TasksList = new ObservableCollection<string>();
 
-            DailyGoal = 0;
-            PercentGoal = 0;
-
-            string[] res = File.ReadAllLines("DailyProgress.txt");
+            string[] res = File.ReadAllLines(Clock.Properties.Resources.DailyProgress);
             Yesterday = Int32.Parse(res[0]);
             Streaks = Int32.Parse(res[1]);
+            DailyGoal = Int32.Parse(res[2]);
+            int day = Int32.Parse(res[3]);
+            int month = Int32.Parse(res[4]);
+            int year = Int32.Parse(res[5]);
+
+            if(DateTime.Now.Day != day && DateTime.Now.Month != month && DateTime.Now.Year != year)
+            {
+                DailyGoal = 0;
+            }
+
+            DateTime d1 = DateTime.Now.AddDays(-1);
+
+            if(d1.Day != day && d1.Month != month && d1.Year != year && DateTime.Now.Day != day && DateTime.Now.Month != month && DateTime.Now.Year != year)
+            {
+                Yesterday = 0;
+                Streaks = 0;
+            }
+
+            PercentGoal = (int)(DailyGoal * 100 / 90 * 3.6);
 
             Completed = DailyGoal.ToString() + " minutes";
 
@@ -279,7 +295,13 @@ namespace Clock.ViewModel
                     else
                         DailyGoal += pomodoro.FocusTime.SettingMinutes - pomodoro.FocusTime.Minutes - 1;
                     Completed = DailyGoal.ToString() + " minutes";
-                    PercentGoal = (int)(DailyGoal * 100 / 90);
+                    PercentGoal = (int)(DailyGoal * 100 / 90 * 3.6);
+
+                    string[] res = new string[6];
+                    res[0] = Yesterday.ToString();
+                    res[1] = Streaks.ToString();
+                    res[2] = DailyGoal.ToString();
+                    res[3] = day.ToString();
                 }
                 else
                 {
@@ -294,7 +316,7 @@ namespace Clock.ViewModel
                     BreakTimeCheckButtonEnable = true;
                     TimesCheckButtonEnable = true;
                     Completed = DailyGoal.ToString() + " minutes";
-                    PercentGoal = (int)(DailyGoal * 100 / 90);
+                    PercentGoal = (int)(DailyGoal * 100 / 90 * 3.6);
                 }
             });
             Skip = new RelayCommand((p) =>
@@ -319,7 +341,7 @@ namespace Clock.ViewModel
                         BreakTimeCheckButtonEnable = true;
                         TimesCheckButtonEnable = true;
                         Completed = DailyGoal.ToString() + " minutes";
-                        PercentGoal = (int)(DailyGoal * 100 / 90);
+                        PercentGoal = (int)(DailyGoal * 100 / 90 * 3.6);
                     }
                     else
                     {
@@ -381,7 +403,7 @@ namespace Clock.ViewModel
                     if (IsTimes == true) IsTimes = false;
                     pomodoro.Times = 2;
                     Completed = DailyGoal.ToString() + " minutes";
-                    PercentGoal = (int)(DailyGoal * 100 / 90);
+                    PercentGoal = (int)(DailyGoal * 100 / 90 * 3.6);
                 }
                 else
                 {
