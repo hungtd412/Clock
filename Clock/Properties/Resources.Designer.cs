@@ -61,16 +61,6 @@ namespace Clock.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0 
-        ///0.
-        /// </summary>
-        internal static string DailyProgress {
-            get {
-                return ResourceManager.GetString("DailyProgress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon notifyicon_icon {
