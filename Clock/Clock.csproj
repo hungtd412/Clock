@@ -16,7 +16,6 @@
     <None Remove="Images\notifyicon_icon.ico" />
     <None Remove="Images\pomodoro_icon.png" />
     <None Remove="Images\stopwatch_icon.png" />
-    <None Remove="Resources\DailyProgress.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +28,6 @@
     <PackageReference Include="Unnoficial.Microsoft.Expression.Drawing" Version="1.0.0" />
     <Resource Include="Images\pomodoro_icon.png" />
     <Resource Include="Images\stopwatch_icon.png" />
-    <Resource Include="Resources\DailyProgress.txt" />
   </ItemGroup>
 
   <ItemGroup>

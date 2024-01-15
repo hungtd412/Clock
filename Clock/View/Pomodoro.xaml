@@ -9,12 +9,10 @@
              xmlns:local="clr-namespace:Clock.View"
              mc:Ignorable="d" 
              Style="{StaticResource Page_Style}"
-             Width="860" Height="740">
+             Width="860" Height="740"
+             MouseDown="Window_MouseDown">
 
-    <UserControl.DataContext>
-        <vm:PomodoroVM />
-    </UserControl.DataContext>
-    <Grid Focusable="True" >
+    <Grid Focusable="True" Name="Main_Grid">
         <Canvas x:Name="Cv_Focus" 
                 Margin="20,20,458,278"
                 Visibility="{Binding SettingVisibility}">
@@ -39,13 +37,14 @@
             Style="{StaticResource Icon_Button_Style}" 
             VerticalAlignment="Center" 
             HorizontalAlignment="Left" Canvas.Left="351"
-            />
+            Visibility="Hidden"/>
 
             <Button Style="{StaticResource Icon_Button_Style}"
             Content="📌" 
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            Padding="0" Canvas.Left="315"/>
+            Padding="0" Canvas.Left="315"
+            Visibility="Hidden"/>
 
             <Rectangle Width="344"
                Height="100" 
@@ -65,7 +64,7 @@
             Content="➖"
             Background="#7F433E5B"
             FontSize="27"
-            Command="{Binding FocusTimeDown}"/>
+            Click="Down_Click"/>
 
             <Button Style="{StaticResource UpDown_Button}"
             Height="100"
@@ -75,7 +74,7 @@
             Content="➕"
             Background="#7F433E5B" 
             FontSize="27"
-            Command="{Binding FocusTimeUp}"/>
+            Click="Up_Click"/>
 
             <TextBox x:Name="txblFocusTime"
              FontSize="55"
@@ -89,7 +88,7 @@
              SelectionBrush="#FFB45CE0"
              CaretBrush="White"
              MaxLength="3"
-             Text="{Binding FocusTimeDisplay, Mode=TwoWay}">
+             LostFocus="txblFocusTime_LostFocus">
             </TextBox>
 
             <TextBlock Style="{StaticResource txbl_Default}"
@@ -108,7 +107,7 @@
             Content="Start focus session"
             Foreground="Black"
             Padding="0"
-            Command="{Binding StartFocus}"/>
+            Click="Start_Button_Click"/>
 
         </Canvas>
 
@@ -128,8 +127,7 @@
               Content="Skip breaks"
               Foreground="LightGray"
               Background="Transparent"
-              IsChecked="{Binding IsBreaks, Mode=TwoWay}"
-              Command="{Binding CheckBreaks}">
+              Click="CheckBox_Click">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </CheckBox.LayoutTransform>
@@ -153,8 +151,7 @@
         Background="#7F433E5B" 
         FontSize="27"
         HorizontalAlignment="Center" VerticalAlignment="Top"
-        Command="{Binding BreakTimeDown}"
-        IsEnabled="{Binding BreakTimeCheckButtonEnable, Mode=OneWay}"/>
+        Click="BreakTime_Down_Click"/>
 
             <Button Name="BreakTime_Up_Button"
         Style="{StaticResource UpDown_Button}"
@@ -166,8 +163,7 @@
         Background="#7F433E5B" 
         FontSize="27"
         HorizontalAlignment="Center" VerticalAlignment="Top"
-        Command="{Binding BreakTimeUp}"
-        IsEnabled="{Binding BreakTimeCheckButtonEnable, Mode=OneWay}"/>
+        Click="BreakTime_Up_Click"/>
 
             <Label x:Name="lbBreak_time"
         FontSize="55"
@@ -175,8 +171,7 @@
         Canvas.Left="158" Canvas.Top="104" Height="74" Width="70"
         Foreground="White"
         VerticalContentAlignment="Center"
-        HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"
-        Content="{Binding BreakTimeDisplay, Mode=TwoWay}">
+        HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top">
             </Label>
 
             <TextBlock Style="{StaticResource txbl_Default}"
@@ -213,8 +208,7 @@
         Content="➖"
         Background="#7F433E5B" 
         FontSize="27"
-        Command="{Binding TimesDown}"
-        IsEnabled="{Binding TimesCheckButtonEnable}"/>
+        Click="Times_Down_Click"/>
             <Button x:Name="Times_Up_Button"
         Style="{StaticResource UpDown_Button}"
         Height="100"
@@ -224,8 +218,7 @@
         Content="➕"
         Background="#7F433E5B" 
         FontSize="27"
-        Command="{Binding TimesUp}"
-        IsEnabled="{Binding TimesCheckButtonEnable}"/>
+        Click="Times_Up_Click"/>
             <Label x:Name="txbTimes"
         FontSize="55"
         Background="Transparent"
@@ -233,7 +226,7 @@
         VerticalContentAlignment="Center"
         HorizontalContentAlignment="Center"
         BorderThickness="0"
-        Content="{Binding NumberOfPomodoros, Mode=TwoWay}"/>
+        Content="2"/>
             <TextBlock Style="{StaticResource txbl_Default}"
         FontSize="17"
         Text="times" 
@@ -247,8 +240,7 @@
                         Content="Until I stopping focus"
                         Foreground="LightGray"
                         Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top"
-                        IsChecked="{Binding IsTimes, Mode=TwoWay}"
-                        Command="{Binding CheckTimes}">
+                        Click="Cb_Until_Stop_Click">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </CheckBox.LayoutTransform>
@@ -266,7 +258,7 @@
             Content="➕" 
             VerticalAlignment="Top"
             HorizontalAlignment="Center"
-            Padding="0" Canvas.Left="348" Canvas.Top="1"/>
+            Padding="0" Canvas.Left="348" Canvas.Top="1" Click="Button_Click"/>
             <TextBlock Name="Stay_on_track"
         Style="{StaticResource txbl_Default}"
         Text="Stay on track"
@@ -297,7 +289,8 @@
         Content="➕ Add a task"
         Padding="0"
         Foreground="White"
-        Background="{StaticResource Setting.Background}"/>
+        Background="{StaticResource Setting.Background}"
+        Click="Start_Button_Copy_Click"/>
             <ListView x:Name="Lsv_tasks"
               Height="204" 
               Width="383" BorderBrush="Transparent"
@@ -320,7 +313,9 @@
                          Margin="3 3 3 0"
                          TextWrapping="Wrap"
                          FocusManager.FocusedElement="{Binding ElementName=NewTB}"
-                         />
+                         KeyUp="NewTB_KeyDown"
+                         LostFocus="NewTB_LostFocus"
+                         PreviewMouseRightButtonDown="NewTB_PreviewMouseRightButtonDown"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -339,54 +334,32 @@
     ArcThickness="18" Canvas.Left="110" Canvas.Top="17"
     ArcThicknessUnit="Pixel"
     EndAngle="360" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ed:Arc 
+            <ed:Arc Name="Arc1"
     Fill="#FF24B7F3"
     Height="190"        
     Width="190"
     Stretch="None"
     ArcThickness="18" Canvas.Left="110" Canvas.Top="17"
     ArcThicknessUnit="Pixel"
-    EndAngle="{Binding PercentGoal}"
+    EndAngle="0"
      HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="Daily goal"
        Style="{StaticResource txbl_Default}" 
-       Canvas.Left="172" Canvas.Top="69"
+       Canvas.Left="172" Canvas.Top="73"
        FontSize="15"/>
             <TextBlock Text="1.5"
        Style="{StaticResource txbl_Default}"
        TextAlignment="Center"
-       FontSize="33" Canvas.Left="184" Canvas.Top="89"/>
+       FontSize="33" Canvas.Left="184" Canvas.Top="93"/>
             <TextBlock Text="hours"
        Style="{StaticResource txbl_Default}"
-       FontSize="15" Canvas.Left="187" Canvas.Top="133"/>
+       FontSize="15" Canvas.Left="187" Canvas.Top="137"/>
             <TextBlock Text="Completed:"
        Style="{StaticResource txbl_Default}"
        FontSize="15" Canvas.Left="130" Canvas.Top="214" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock Text="{Binding Completed}"
+            <TextBlock Text="0 minutes" Name="Complete"
        Style="{StaticResource txbl_Default}"
        FontSize="15" Canvas.Left="211" Canvas.Top="214" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock Text="Yesterday"
-Style="{StaticResource txbl_Default}" 
-Canvas.Left="16" Canvas.Top="63"
-FontSize="15" HorizontalAlignment="Left"/>
-            <TextBlock Text="{Binding Yesterday}"
-Style="{StaticResource txbl_Default}"
-TextAlignment="Center"
-FontSize="33" Canvas.Left="20" Canvas.Top="82" VerticalAlignment="Center" HorizontalAlignment="Left" Width="54"/>
-            <TextBlock Text="minutes"
-Style="{StaticResource txbl_Default}"
-FontSize="15" Canvas.Left="21" Canvas.Top="126" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock Text="Streak"
-Style="{StaticResource txbl_Default}" 
-Canvas.Left="330" Canvas.Top="62"
-FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock Text="{Binding Streaks}"
-TextAlignment="Center"
-Style="{StaticResource txbl_Default}"
-FontSize="33" Canvas.Left="326" Canvas.Top="82" VerticalAlignment="Center" HorizontalAlignment="Left" Width="53"/>
-            <TextBlock Text="days"
-Style="{StaticResource txbl_Default}"
-FontSize="15" Canvas.Left="337" Canvas.Top="126" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             <TextBlock Style="{StaticResource txbl_Default}"
 Text="Daily progress" FontWeight="Bold"
 FontSize="15"  
@@ -395,12 +368,13 @@ Canvas.Top="5"/>
             <Button Style="{StaticResource Icon_Button_Style}"
 Content="✏️"
     FontSize="15"
-Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Visibility="Hidden"/>
         </Canvas>
 
         <Canvas x:Name="Cv_Countdown" 
         Margin="306,73,71,314"
-        Visibility="{Binding CountdownVisibility}">
+        Visibility="Hidden">
             <Rectangle Style="{StaticResource RTG_Default}"
                Width="793"
                Height="423" HorizontalAlignment="Left" Canvas.Left="-281" Canvas.Top="-35" VerticalAlignment="Center"/>
@@ -429,7 +403,7 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
             Width="80"
             Height="80"
             Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
-            Command="{Binding Pause}"/>
+            Click="Pause_Button_Click"/>
 
             <Button x:Name="Back_Button"
         Style="{StaticResource UpDown_Button}"
@@ -439,7 +413,7 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
         Height="80"
         IsEnabled="{Binding BackButtonEnable}"
         Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
-        Command="{Binding Back}"/>
+        Click="Back_Button_Click"/>
 
             <Button x:Name="Skip_Button"
         Style="{StaticResource UpDown_Button}"
@@ -448,7 +422,7 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
         Width="80"
         Height="80"
         Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
-        Command="{Binding Skip}"/>
+        Click="Skip_Button_Click"/>
         </Canvas>
     </Grid>
 </UserControl>
