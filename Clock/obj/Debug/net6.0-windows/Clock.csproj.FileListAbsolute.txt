@@ -40,10 +40,8 @@ D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Styles\Image.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Styles\Page.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Styles\Text.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\MainWindow.g.cs
-D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Alarm.g.cs
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Pomodoro.g.cs
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Stopwatch.g.cs
-D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Timer.g.cs
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\App.g.cs
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock_MarkupCompile.cache
@@ -51,10 +49,8 @@ D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock_MarkupCompil
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\App.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\MainWindow.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Utilities\DataTemplate.baml
-D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Alarm.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Pomodoro.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Stopwatch.baml
-D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\Timer.baml
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.g.resources
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.GeneratedMSBuildEditorConfig.editorconfig
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.AssemblyInfoInputs.cache
@@ -73,3 +69,12 @@ D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-win
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Styles\ComboBox.baml
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\View\EditDailyGoalView.g.cs
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\View\EditDailyGoalView.baml
+D:\Github\Clock_Official\Clock\Clock\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+D:\Github\Clock_Official\Clock\Clock\bin\Debug\net6.0-windows\Microsoft.Expression.Drawing.dll
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.AssemblyReference.cache
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Styles\ComboBox.baml
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\EditDailyGoalView.g.cs
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\EditDailyGoalView.baml
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.Properties.Resources.resources
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.GenerateResource.cache
+D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.CopyComplete

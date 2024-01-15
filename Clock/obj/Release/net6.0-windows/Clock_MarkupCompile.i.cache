@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\
+D:\Github\Clock_Official\Clock\Clock\obj\Release\net6.0-windows\
 Clock
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\App.xaml
+D:\Github\Clock_Official\Clock\Clock\App.xaml
 11-2013677872
 
-19-1143256489
-203692806479
+21-2023762086
+2051662980225
 MainWindow.xaml;Styles\Button.xaml;Styles\ComboBox.xaml;Styles\Image.xaml;Styles\Page.xaml;Styles\ScrollBar.xaml;Styles\Text.xaml;Utilities\DataTemplate.xaml;View\EditDailyGoalView.xaml;View\Pomodoro.xaml;View\Stopwatch.xaml;
 
 True
