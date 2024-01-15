@@ -25,7 +25,7 @@ namespace Clock.View
     {
         private Forms.NotifyIcon notifyIcon;
 
-        List<int> time = new List<int>() { 10, 15, 20, 1, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
+        List<int> time = new List<int>() { 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
         List<int> break_time = new List<int>() { 1, 2, 3, 4, 5, 10, 15, 20, 25, 30 };
 
 
