@@ -23,8 +23,6 @@ namespace Clock.View
     /// </summary>
     public partial class Pomodoro : UserControl
     {
-        //private Forms.NotifyIcon notifyIcon;
-
         List<int> time = new List<int>() { 1, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
         List<int> break_time = new List<int>() { 1, 2, 3, 4, 5, 10, 15, 20, 25, 30 };
 
@@ -56,11 +54,6 @@ namespace Clock.View
             breakTime = new DispatcherTimer();
             breakTime.Interval = TimeSpan.FromSeconds(1);
             breakTime.Tick += BreakTime_Tick;
-
-            //Notif.notifyIcon = new Forms.NotifyIcon();
-            //Notif.notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
-            //Notif.notifyIcon.Visible = true;
-            //Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
         }
 
         private void BreakTime_Tick(object sender, EventArgs e)
@@ -72,17 +65,18 @@ namespace Clock.View
                 f_or_b = true;
                 bm = dbm;
                 bs = dbs;
+                
 
                 if (have_breaks == false)
                 {
                     Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
+                    Session.Text = "Focus time";
                     _timer.Start();
                 }
                 else
                 {
-                    Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Focus time has left.", Forms.ToolTipIcon.Info);
-                    SystemSounds.Asterisk.Play();
+                    Session.Text = "Focus time";
                     _timer.Start();
                 }
             }
@@ -110,6 +104,8 @@ namespace Clock.View
         {
             int focustime = Get_Focus_Time();
             int breaktime = Get_Break_Time();
+
+            Session.Text = "Focus time ";
 
             dfm = focustime;
             fm = focustime;
@@ -165,6 +161,7 @@ namespace Clock.View
                     fm = dfm;
                     fs = dfs;
                     if (NumberOfPomodoros <= 10) NumberOfPomodoros--;
+                    Session.Text = "Break time";
                     breakTime.Start();
                 }
             }
@@ -545,7 +542,7 @@ namespace Clock.View
                 }
                 else 
                 {
-                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Take a rest before continue focusing.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Focus time has left", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     f_or_b = false;
                     fm = dfm;
@@ -553,6 +550,7 @@ namespace Clock.View
                     if (NumberOfPomodoros <= 10) NumberOfPomodoros--;
                     Pause_Button.Content = "⬛";
                     Back_Button.IsEnabled = false;
+                    if(have_breaks == false) Session.Text = "Break time";
                     breakTime.Start();
                 }
             }
@@ -568,6 +566,7 @@ namespace Clock.View
 
                 Pause_Button.Content = "⬛";
                 Back_Button.IsEnabled = false;
+                Session.Text = "Focus time";
                 _timer.Start();
 
             }
