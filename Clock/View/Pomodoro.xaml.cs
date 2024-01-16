@@ -23,9 +23,9 @@ namespace Clock.View
     /// </summary>
     public partial class Pomodoro : UserControl
     {
-        private Forms.NotifyIcon notifyIcon;
+        //private Forms.NotifyIcon notifyIcon;
 
-        List<int> time = new List<int>() { 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
+        List<int> time = new List<int>() { 1, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
         List<int> break_time = new List<int>() { 1, 2, 3, 4, 5, 10, 15, 20, 25, 30 };
 
 
@@ -57,9 +57,10 @@ namespace Clock.View
             breakTime.Interval = TimeSpan.FromSeconds(1);
             breakTime.Tick += BreakTime_Tick;
 
-            notifyIcon = new Forms.NotifyIcon();
-            notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
-            notifyIcon.Visible = true;
+            //Notif.notifyIcon = new Forms.NotifyIcon();
+            //Notif.notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
+            //Notif.notifyIcon.Visible = true;
+            //Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
         }
 
         private void BreakTime_Tick(object sender, EventArgs e)
@@ -74,13 +75,13 @@ namespace Clock.View
 
                 if (have_breaks == false)
                 {
-                    notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     _timer.Start();
                 }
                 else
                 {
-                    notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Focus time has left.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Focus time has left.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     _timer.Start();
                 }
@@ -142,7 +143,7 @@ namespace Clock.View
 
                 if (have_breaks == true || NumberOfPomodoros == 0)
                 {
-                    notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.",Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.",Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     Cv_Break.Visibility = Visibility.Visible;
                     Cv_Focus.Visibility = Visibility.Visible;
@@ -158,7 +159,7 @@ namespace Clock.View
                 }
                 else
                 {
-                    notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Take a rest before continue focusing.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Take a rest before continue focusing.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     f_or_b = false;
                     fm = dfm;
@@ -335,7 +336,7 @@ namespace Clock.View
         {
             if (f_or_b == true)
             {
-                notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
+                Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
                 SystemSounds.Asterisk.Play();
                 _timer.Stop();
                 Cv_Break.Visibility = Visibility.Visible;
@@ -365,7 +366,7 @@ namespace Clock.View
             }
             if (f_or_b == false)
             {
-                notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
+                Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
                 SystemSounds.Asterisk.Play();
                 breakTime.Stop();
                 Cv_Break.Visibility = Visibility.Visible;
@@ -526,7 +527,7 @@ namespace Clock.View
 
                 if (NumberOfPomodoros == 0)
                 {
-                    notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Well done! You have finished your focus session.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     Cv_Break.Visibility = Visibility.Visible;
                     Cv_Focus.Visibility = Visibility.Visible;
@@ -544,7 +545,7 @@ namespace Clock.View
                 }
                 else 
                 {
-                    notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Take a rest before continue focusing.", Forms.ToolTipIcon.Info);
+                    Notif.notifyIcon.ShowBalloonTip(500, "Congratulastions!", "Good job! Take a rest before continue focusing.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     f_or_b = false;
                     fm = dfm;
@@ -562,7 +563,7 @@ namespace Clock.View
                 bm = dbm;
                 bs = dbs;
 
-                notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
+                Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
                 SystemSounds.Asterisk.Play();
 
                 Pause_Button.Content = "⬛";

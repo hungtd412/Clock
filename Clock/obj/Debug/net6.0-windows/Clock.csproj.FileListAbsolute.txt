@@ -78,3 +78,7 @@ D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\View\EditDailyGoal
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.Properties.Resources.resources
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.GenerateResource.cache
 D:\Github\Clock_Official\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.CopyComplete
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\bin\Debug\net6.0-windows\Microsoft.Expression.Drawing.dll
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Clock_Content.g.cs
+D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Debug\net6.0-windows\Clock.csproj.CopyComplete

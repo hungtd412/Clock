@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EmM5+68xRx42jzrPxzP0/txw5/z9ovD1RzL2XPX0x9TKssnRDdjBTVIMYwxTbQa2uBEwBbeweRabsfe03JA+OQ==",
+  "dgSpecHash": "FavhoJVZ1yAULROnm0a7c70iontajxhsf/uzx3OehjJ+oseDKh8ibeff3GdohqoB26REJu6MfgNzQpQRZ+CXDA==",
   "success": true,
-  "projectFilePath": "D:\\Github\\Clock_Official\\Clock\\Clock\\Clock.csproj",
+  "projectFilePath": "D:\\HỌC TẬP\\UIT\\HK3\\LẬP TRÌNH TRỰC QUAN\\Clock\\Clock\\Clock.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FPT\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
-    "C:\\Users\\FPT\\.nuget\\packages\\unnoficial.microsoft.expression.drawing\\1.0.0\\unnoficial.microsoft.expression.drawing.1.0.0.nupkg.sha512"
+    "C:\\Users\\HUNG\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
+    "C:\\Users\\HUNG\\.nuget\\packages\\unnoficial.microsoft.expression.drawing\\1.0.0\\unnoficial.microsoft.expression.drawing.1.0.0.nupkg.sha512"
   ],
   "logs": [
     {
