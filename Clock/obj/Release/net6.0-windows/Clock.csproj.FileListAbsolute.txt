@@ -82,3 +82,4 @@ D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\bin\Release\net6.0-w
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\bin\Release\net6.0-windows\Microsoft.Expression.Drawing.dll
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock.csproj.CopyComplete
 D:\HỌC TẬP\UIT\HK3\LẬP TRÌNH TRỰC QUAN\Clock\Clock\obj\Release\net6.0-windows\Clock_Content.g.cs
+D:\Github\Clock_Official\Clock\Clock\obj\Release\net6.0-windows\Clock_Content.g.cs
