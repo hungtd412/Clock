@@ -23,7 +23,7 @@ namespace Clock.View
     /// </summary>
     public partial class Pomodoro : UserControl
     {
-        List<int> time = new List<int>() { 1, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
+        List<int> time = new List<int>() { 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 90, 120, 150, 180, 210, 240 };
         List<int> break_time = new List<int>() { 1, 2, 3, 4, 5, 10, 15, 20, 25, 30 };
 
 
@@ -39,6 +39,7 @@ namespace Clock.View
         private int NumberOfPomodoros;
         private bool check_task_empty = false;
         private int Dailygoal = 0;
+        private int sessiongoal = 0;
 
         public Pomodoro()
         {
@@ -72,11 +73,13 @@ namespace Clock.View
                     Notif.notifyIcon.ShowBalloonTip(500, "Ding Dong!", "Break time has left.", Forms.ToolTipIcon.Info);
                     SystemSounds.Asterisk.Play();
                     Session.Text = "Focus time";
+                    sessiongoal = 0;
                     _timer.Start();
                 }
                 else
                 {
                     Session.Text = "Focus time";
+                    sessiongoal = 0;
                     _timer.Start();
                 }
             }
@@ -89,12 +92,15 @@ namespace Clock.View
                 }
 
                 bs--;
+                sessiongoal++;
 
                 if (bm < 10) Display += '0' + bm.ToString() + ':';
                 else Display += bm.ToString() + ':';
 
                 if (bs < 10) Display += '0' + bs.ToString();
                 else Display += bs.ToString();
+
+                Arc2.EndAngle = (int)(sessiongoal * 100 / dbm / 60 * 3.6);
 
                 txblCountdown.Text = Display;
             }
@@ -151,6 +157,7 @@ namespace Clock.View
                     Times_Up_Button.IsEnabled = true;
                     Complete.Text = Dailygoal.ToString() + " minutes"; 
                     Arc1.EndAngle = (int)(Dailygoal * 100 / 90 * 3.6);
+                    Arc2.EndAngle = 0;
 
                 }
                 else
@@ -162,6 +169,7 @@ namespace Clock.View
                     fs = dfs;
                     if (NumberOfPomodoros <= 10) NumberOfPomodoros--;
                     Session.Text = "Break time";
+                    sessiongoal = 0;
                     breakTime.Start();
                 }
             }
@@ -175,11 +183,15 @@ namespace Clock.View
 
                 fs--;
 
+                sessiongoal++;
+
                 if (fm < 10) Display += '0' + fm.ToString() + ':';
                 else Display += fm.ToString() + ':';
 
                 if (fs < 10) Display += '0' + fs.ToString();
                 else Display += fs.ToString();
+
+                Arc2.EndAngle = (int)(sessiongoal * 100 / dfm / 60 * 3.6);
 
                 txblCountdown.Text = Display;
             }
@@ -347,8 +359,9 @@ namespace Clock.View
                 BreakTime_Up_Button.IsEnabled = true;
                 Times_Down_Button.IsEnabled = true;
                 Times_Up_Button.IsEnabled = true;
+                sessiongoal = 0;
 
-                if(60 - fs == 60)
+                if (60 - fs == 60)
                 {
                     if (Dailygoal + dfm - fm < 90) Dailygoal += dfm - fm;
                     else Dailygoal = 90;
@@ -378,6 +391,7 @@ namespace Clock.View
                 BreakTime_Up_Button.IsEnabled = true;
                 Times_Down_Button.IsEnabled = true;
                 Times_Up_Button.IsEnabled = true;
+                sessiongoal = 0;
 
                 if (60 - fs == 60)
                 {
@@ -535,6 +549,7 @@ namespace Clock.View
                     BreakTime_Up_Button.IsEnabled = true;
                     Times_Down_Button.IsEnabled = true;
                     Times_Up_Button.IsEnabled = true;
+                    sessiongoal = 0;
 
                     Complete.Text = Dailygoal.ToString() + " minutes";
                     Arc1.EndAngle = (int)(Dailygoal * 100 / 90 * 3.6);
@@ -551,6 +566,7 @@ namespace Clock.View
                     Pause_Button.Content = "⬛";
                     Back_Button.IsEnabled = false;
                     if(have_breaks == false) Session.Text = "Break time";
+                    sessiongoal = 0;
                     breakTime.Start();
                 }
             }
@@ -567,6 +583,7 @@ namespace Clock.View
                 Pause_Button.Content = "⬛";
                 Back_Button.IsEnabled = false;
                 Session.Text = "Focus time";
+                sessiongoal = 0;
                 _timer.Start();
 
             }

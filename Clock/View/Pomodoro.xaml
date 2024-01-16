@@ -380,9 +380,9 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
 
             <Rectangle Width="408"
                        Height="80" 
-                       Canvas.Left="-91" 
-                       Canvas.Top="246" 
-                       HorizontalAlignment="Left" 
+                       Canvas.Left="-20" 
+                       Canvas.Top="247" 
+                       HorizontalAlignment="Center" 
                        VerticalAlignment="Top"
                        RadiusX="40"
                        RadiusY="40"
@@ -390,42 +390,58 @@ Padding="0" Canvas.Left="364" HorizontalAlignment="Left" VerticalAlignment="Cent
 
             <TextBlock x:Name="txblCountdown"
                Style="{StaticResource txbl_Default}"
-               FontSize="100"
-               Background="Transparent"
-               HorizontalAlignment="Left" Canvas.Top="57"/>
+               FontSize="60"
+               Background="Transparent" Canvas.Top="63" Text="00:00" Canvas.Left="108"/>
 
             <TextBlock Name ="Session"
                Style="{StaticResource txbl_Default}"
                FontSize="50"
                Background="Transparent"
-               HorizontalAlignment="Left" Canvas.Top="-30" Canvas.Left="-250"/>
+               HorizontalAlignment="Left" Canvas.Top="-30" Canvas.Left="-260"/>
+
+            <ed:Arc Fill="Gray"
+                    Height="235"        
+                    Width="235"
+                    Stretch="None"
+                    ArcThickness="20" Canvas.Top="-15"
+                    ArcThicknessUnit="Pixel"
+                    EndAngle="360" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="65"/>
+            <ed:Arc Name="Arc2"
+                    Fill="#FF24B7F3"
+                    Height="235"        
+                    Width="235"
+                    Stretch="None"
+                    ArcThickness="18" Canvas.Left="65" Canvas.Top="-15"
+                    ArcThicknessUnit="Pixel"
+                    EndAngle="0"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
             <Button x:Name="Pause_Button"
             Style="{StaticResource UpDown_Button}"
             Content="{Binding BtnPauseContent}"
-            FontSize="25" Canvas.Left="-91" Canvas.Top="246"
+            FontSize="25" Canvas.Left="-20" Canvas.Top="247"
             Width="80"
             Height="80"
-            Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Background="#7F433E5B" HorizontalAlignment="Center" VerticalAlignment="Top"
             Click="Pause_Button_Click"/>
 
             <Button x:Name="Back_Button"
         Style="{StaticResource UpDown_Button}"
         Content="↩"
-        FontSize="25" Canvas.Left="72" Canvas.Top="246"
+        FontSize="25" Canvas.Left="143" Canvas.Top="247"
         Width="80"
         Height="80"
-        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+        Background="#7F433E5B" HorizontalAlignment="Center" VerticalAlignment="Top"
         Click="Back_Button_Click"
         IsEnabled="False"/>
 
             <Button x:Name="Skip_Button"
         Style="{StaticResource UpDown_Button}"
         Content="⏩"
-        FontSize="25" Canvas.Left="238" Canvas.Top="246"
+        FontSize="25" Canvas.Left="309" Canvas.Top="247"
         Width="80"
         Height="80"
-        Background="#7F433E5B" HorizontalAlignment="Left" VerticalAlignment="Top"
+        Background="#7F433E5B" HorizontalAlignment="Center" VerticalAlignment="Top"
         Click="Skip_Button_Click"/>
         </Canvas>
     </Grid>
