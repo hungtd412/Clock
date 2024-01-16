@@ -21,23 +21,23 @@ namespace Clock
     /// </summary>
     public partial class App : System.Windows.Application
     {
-        private readonly Forms.NotifyIcon notifyIcon;
+        //private readonly Forms.NotifyIcon notifyIcon;
 
         public App()
         {
-            notifyIcon = new Forms.NotifyIcon();
+            Notif.notifyIcon = new Forms.NotifyIcon();
         }
 
         void AddNotifyIcon()
         {
-            notifyIcon.Visible = true;
-            notifyIcon.Text = "Clock";
-            notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
-            notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
-            notifyIcon.ContextMenuStrip.Items.Add("Open Clock", null, NotifyIcon_DoubleClick);
-            notifyIcon.ContextMenuStrip.Items.Add("Exit Clock", null, ExitAppClicked);
+            Notif.notifyIcon.Visible = true;
+            Notif.notifyIcon.Text = "Clock";
+            Notif.notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
+            Notif.notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
+            Notif.notifyIcon.ContextMenuStrip.Items.Add("Open Clock", null, NotifyIcon_DoubleClick);
+            Notif.notifyIcon.ContextMenuStrip.Items.Add("Exit Clock", null, ExitAppClicked);
 
-            notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
+            Notif.notifyIcon.Icon = Clock.Properties.Resources.notifyicon_icon;
         }
 
 
@@ -75,8 +75,13 @@ namespace Clock
 
         protected override void OnExit(ExitEventArgs e) 
         {
-            notifyIcon.Dispose();
+            Notif.notifyIcon.Dispose();
             base.OnExit(e);
         }
     }
+
+    public static class Notif
+    {
+        public static Forms.NotifyIcon notifyIcon;
+    }    
 }
