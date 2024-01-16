@@ -3,6 +3,4 @@
   - Trần Đức Hùng 22520525
   - Võ Trần Minh Tuấn 22521613
 
-Document: [link drive](https://drive.google.com/drive/u/1/folders/1xPbLjZwqYMMxBkgyrMlMv2RGS9tekYqw)
-
-Video demo: https://www.youtube.com/
+Detail information: [link drive](https://drive.google.com/drive/u/1/folders/1xPbLjZwqYMMxBkgyrMlMv2RGS9tekYqw)
